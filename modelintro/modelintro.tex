@@ -201,6 +201,13 @@ With the additional parameter \texttt{humanFollowProbability} (probability for a
 \sframe{The model in practice}{
  % scala impl + GUI -> layus on implementation / platform
 
+ \begin{itemize}
+ 	\item Model implemented in scala (highly performant language mixing the best from functional programming and object programming)
+ 	\item Simple GUI for interactive exploration	
+ 	\item 
+ \end{itemize}
+
+
 }
 
 
@@ -214,23 +221,9 @@ With the additional parameter \texttt{humanFollowProbability} (probability for a
 % say that plugin - as a jar
 
 
-%\texttt{
-import zombies._
+\centering
 
-    val rng = new scala.util.Random(replication)
-
-    val result = zombieInvasion(
-      humanFollowProbability = humanFollowProbability,
-      humanInformedRatio =humanInformedRatio,
-      humanInformProbability = humanInformProbability,
-      zombies = 4,
-      humans = 250,
-      steps = 500,
-      random = rng)
-
-    val humansDynamic = result.humansDynamic(20)
-    val zombiesDynamic = result.zombiesDynamic(20)
-%}
+\includegraphics[width=\textwidth]{figures/zombies_scalaapi.png}
 
 }
 

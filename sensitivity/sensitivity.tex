@@ -5,7 +5,7 @@
 \title[DOE/Sensitivity Analysis]{Design of Experiments and Sensitivity analysis}
 \subtitle{Course and practical application}
 %\author[Short Author]{Author}
-\author{ExModelo Summer School}
+\author{eX Modelo Summer School}
 \date{June 24, 2019}
 \institute{\includegraphics[scale=2]{../beamer_template/figures/logos/openmole.png}}
 
@@ -26,6 +26,47 @@
 	\addtocounter{framenumber}{-1}
 }
 
+
+
+
+
+%orthographe: eX Modelo
+%S1 : les remarques sont très bien 
+%Le vert ressort mal pour les titre, on voit mal
+
+
+%S4: qualification du OAT : ++
+
+%Est-ce qu'il ne faudrait pas faire un petit schéma pour expliquer chaque méthode ?
+
+%Compliqué la partie OFAT pour commencer ... non ?
+%J'ai pas compris les graphes [name = Paul] => plus expliciter et details. dire que plus de calcul.
+
+dixit Juste: il faut que j'essaye de virer les jugements disciplinaires
+dixit Paul : oui 
+
+S7: ajouter les plots sobol et grid sur le modèle zombie
+
+S8 : la formule est raide à cause des symboles un peu rares : le 1 à double barre, la fonction / produit $\Pi$ etc.. $\implies$ garder l'intuition de la discrepancy comme la faculté de "bien couvrir" l'espace
+
+
+
+Que signifie l'«intégrale» qui sert d'évaluation des séquences de nombres (1/N, 1/ $\sqrt N$ , etc..)
+
+S11 : cool , explicite et illustratif
+
+
+/!\ Intercaler la manip avant de passer à morris/saltelli /!\
+
+manip : grid ; sobol
+
+ajouter elements de texte explication formule discrepance
+
+manip : saltelli
+
+ajouter slides : tableau de synthese avantage / probleme of each method (after sampling and after sensitivity)
+
+aller plus lentement - chaque methode clair - segmenter.
 
 
 
@@ -78,6 +119,22 @@
 
 }
 
+\sframe{OpenMOLE syntax}{
+
+\textbf{Syntax of the direct sampling method in OpenMOLE:}
+
+\medskip
+
+\includegraphics[width=\textwidth]{figures/directSamplingcode.png}
+
+%\texttt{
+%val explo = DirectSampling(\\
+% \hspace{1cm}evaluation = model,\\
+% \hspace{1cm}sampling = \dots \\
+%)
+%}
+}
+
 
 \sframe{One factor at a time}{
   
@@ -101,10 +158,13 @@ Cheapest and intuitive DOE: \textit{all factors have nominal values and a discre
 
  %<img width=600 src=https://miniocodimd.openmole.org:443/codimd/uploads/upload_82c20b2e74a3f5b96a0fc227311cd516.png/>
  
- \centering
+ \begin{center}
+ \includegraphics[width=0.8\textwidth]{figures/example_oatfailure.png}
+ \end{center}
  
- \includegraphics[width=\textwidth]{figures/example_oatfailure.png}
+ \footnotesize
  
+ \textit{Indicator variations in a 3D parameter space: some nominal values make non-monotonous effects disappear}
  
 
 }
@@ -121,11 +181,61 @@ Brute force DOE: \textit{ensemble product of discrete variation ranges for facto
 
 \begin{itemize}
   \item quickly limited by the curse of dimensionality - in practice still powerful with a quick model and a low number of parameters
-  \item naive approach, i.e. only DOE for many "simulation-newcomers" such as economics or some parts of physics
+  \item naive approach, but remains only DOE for many "simulation-newcomers" disciplines
 \end{itemize}
 
 
 }
+
+
+\sframe{Syntax of samplings}{
+
+  \textbf{One-factor sampling: }
+
+\medskip
+
+\texttt{
+ sampling = OneFactorSampling(\\
+  \hspace{1cm}(x1 in (0.0 to 1.0 by 0.2)) nominal 0.5,\\
+  \hspace{1cm}(x2 in (0.0 to 1.0 by 0.2)) nominal 0.5\\
+ )
+}
+
+\bigskip
+
+\textbf{Grid sampling: }
+
+
+\medskip
+
+\texttt{
+sampling = \\
+ \hspace{1cm} (x1 in (0.0 to 1.0 by 0.5)) x\\
+ \hspace{1cm} (x2 in (0.0 to 1.0 by 0.5))
+}
+
+}
+
+
+\sframe{Practical application}{
+
+
+
+\begin{itemize}
+	\item Given the described zombie model, what first experiment beyond stochasticity would be relevant ?
+    \item Explore and test the \texttt{directsampling.oms} available at
+    \url{} %TODO tp download url - in chat ?
+    \item Explore results (using e.g. the OpenMOLE GUI plots)
+\end{itemize}
+
+%\textit{Resources:}
+% - one script running directsampling
+% - example of grid explo results
+% - example of Saltelli
+
+}
+
+
 
 
 \section{High-dimensional samplings}
@@ -144,7 +254,7 @@ Different methods for improving sampling in numerical experiments given limited 
 \medskip
 
 \begin{itemize}
-	\item Sobol sequences (quicker convergence of integral estimation)
+	\item Sobol sequences (quicker convergence of for Monte Carlo estimation of integrals)
 	\item Latin Hypercube Sampling
 	\item Orthogonal sampling
 \end{itemize}
@@ -208,7 +318,7 @@ L2-discrepancy given for normalized data points $\mathbf{X}=(x_{ij})\in \left[0,
 
 
 \begin{itemize}
-	\item Estimate integral in $1/N$ instead of $1/\sqrt{N}$ with random sampling
+	\item Estimate integrals in $1/N$ instead of $1/\sqrt{N}$ with random sampling
 	\item Constructed recursively (using bit representations)
 \end{itemize}
 
@@ -225,6 +335,48 @@ For $N=2500$ samples in 2 dimensions
 \includegraphics[height=0.8\textheight]{figures/sobol.png}
 
 }
+
+\sframe{Comparison of samplings}{
+
+\textit{Estimated discrepancies for repetitions of samplings as a function of sample size}
+
+\centering
+
+\medskip
+
+\includegraphics[height=0.8\textheight]{figures/discrepancies.png}
+
+}
+
+
+
+\sframe{Syntax of high-dimensional samplings}{
+
+\textbf{LHS Sampling}
+  
+\texttt{
+sampling = LHS(\\
+\hspace{1cm}100,\\
+\hspace{1cm}x1 in (0.0,1.0),\\
+\hspace{1cm}x2 in (0.0,1.0)\\
+)
+}
+
+\textbf{Sobol sampling}
+
+\texttt{
+sampling = SobolSampling(\\
+\hspace{1cm} 100,
+\hspace{1cm}x1 in (0.0,1.0),
+\hspace{1cm}x2 in (0.0,1.0)
+)
+}
+
+
+}
+
+
+
 
 
 
@@ -249,6 +401,7 @@ For $N=2500$ samples in 2 dimensions
 }
 
 
+
 \sframe{Morris method}{
 
 \justify
@@ -265,179 +418,90 @@ For $N=2500$ samples in 2 dimensions
 
 \bigskip
 
-Introduced by \cite{morris1991factorial}, improved by \cite{saltelli2004sensitivity}, \cite{campolongo2011screening} propose to extend the method with Sobol sequences
+Introduced by \cite{morris1991factorial}, improved by \cite{saltelli2004sensitivity},\\
+ \cite{campolongo2011screening} propose to extend the method with Sobol sequences
 
 
 
 }
+
+
+\sframe{Morris}{
+
+\textit{In OpenMOLE, Morris is a method in itself (and not a sampling)}
+
+\bigskip
+
+\includegraphics[width=\textwidth]{figures/morris_code.png}
+
+}
+
 
 
 \sframe{Saltelli method}{
 
-Estimation of relative and conditional variances
+\textit{Method based on the estimation of conditional relative variances}
+
+\cite{saltelli2010variance}
+
+\medskip
+
+\textbf{First order index}
 
 \[
-ST_i = \frac{E_{\mathbf{X}\sim i}\left[Var(Y | \mathbf{X}\sim i) \right]}{Var(Y)}
+S_i = \frac{Var \left[ E_{\mathbf{X}_{\sim i}} (Y | X_i ) \right]}{Var(Y)}
 \]
 
-}
+is the expected relative variance reduction if $X_i$ would be fixed
 
+\medskip
 
+\textbf{Total effect index}
+\[
+ST_i = \frac{E_{\mathbf{X}_{\sim i}}\left[Var(Y | \mathbf{X}_{\sim i}) \right]}{Var(Y)}
+\]
 
-\section{Application in OpenMOLE}
+is the expected relative variance if all factors but $X_i$ are fixed (includes interaction effects)
 
+%for factor $i$ gives the variance of indicator $Y$ conditionally to all other factors being fixed, relative to indicator variance.
 
-\sframe{OpenMOLE syntax}{
-
-\textbf{Syntax of the direct sampling:}
-
-\texttt{
-val explo = DirectSampling(\\
- \hspace{1cm}evaluation = model,\\
- \hspace{1cm}sampling = \dots \\
-)
-}
 
 
 }
-
-
-\sframe{Example of samplings}{
-
-  \textbf{One-factor sampling: }
-
-\bigskip
-
-\texttt{
- sampling = OneFactorSampling(\\
-  \hspace{1cm}(x1 in (0.0 to 1.0 by 0.2)) nominal 0.5,\\
-  \hspace{1cm}(x2 in (0.0 to 1.0 by 0.2)) nominal 0.5\\
- )
-}
-
-}
-
-
-
-\sframe{Example of samplings}{
-
-\begin{itemize}
- \item Grid sampling
-
-\texttt{
-sampling = \\
- \hspace{1cm} (x1 in (0.0 to 1.0 by 0.5)) x\\
- \hspace{1cm} (x2 in (0.0 to 1.0 by 0.5))
-}
-  \item LHS Sampling
-  
-\texttt{
-sampling = LHS(\\
-\hspace{1cm}100,\\
-\hspace{1cm}x1 in (0.0,1.0),\\
-\hspace{1cm}x2 in (0.0,1.0)\\
-)
-}
-
-  \item Sobol sampling
-
-\texttt{
-sampling = SobolSampling(\\
-\hspace{1cm} 100,
-\hspace{1cm}x1 in (0.0,1.0),
-\hspace{1cm}x2 in (0.0,1.0)
-)
-}
-
-\end{itemize}
-
-}
-
 
 \sframe{Saltelli}{
 
 \justify
 
-\textit{Saltelli is a method in itself}
+\textit{In OpenMOLE, Saltelli is also a method}
 
 \bigskip
 
-\texttt{
-val sen = SensitivitySaltelli(\\
- \hspace{1cm} evaluation = (model on env by 1000),\\
- \hspace{1cm} samples = 100000,\\
- \hspace{1cm} inputs = Seq(\\
- \hspace{2cm} humanFollowProbability in (0.0,1.0),\\
- \hspace{2cm} humanInformedRatio in (0.0,1.0),\\
- \hspace{2cm} humanInformProbability in (0.0,1.0)),\\
- \hspace{1cm} outputs = Seq(totalZombified,halfZombified),\\
-)
-}
-% TODO add hook
 
-
-}
-
-
-
-\sframe{Morris}{
-
-\textit{Morris is also a method}
+\includegraphics[width=\textwidth]{figures/saltellicode.png}
 
 \bigskip
 
-%\texttt{
-%SensitivityMorris(
-%    evaluation = modelExec on envLocal hook storeSimuCSV,
-%    inputs = Seq(inputNumberOfCars in (1.0, 41.0), 
-%                inputAcceleration in (0.0, 0.0099),
-%                inputDeceleration in (0.0, 0.099)
-%                ),
-%    outputs = Seq(outputSpeedMin, outputSpeedMax),
-%    repetitions = 100,
-%    levels = 5)
-%}
-
-\texttt{
-\noindent val morrisHook = \\
-val sen = SensitivityMorris(\\
-\hspace{1cm}evaluation = model on env hook morrisHook,\\
- \hspace{1cm} inputs = Seq(\\
- \hspace{2cm} humanFollowProbability in (0.0,1.0),\\
- \hspace{2cm} humanInformedRatio in (0.0,1.0),\\
- \hspace{2cm} humanInformProbability in (0.0,1.0)),\\
- \hspace{1cm} outputs = Seq(totalZombified,halfZombified),\\
- \hspace{1cm} repetitions = 100,\\
- \hspace{1cm}  levels = 5 \\
-)
-}
-
-
+$\rightarrow$ \textbf{Practice: } explore the script \texttt{saltelli.oms}
 
 }
 
 
 
-\section{Practical application}
+\sframe{Conclusion}{
 
-
-\sframe{Practical application}{
-
-
-Your turn to run some direct samplings and/or sensitivity analysis
+\textbf{Take-home messages: }
 
 \begin{itemize}
-	\item given the described zombie model, what first experiment beyond stochasticity would be relevant ?
-    \item write a script
-    \item explore results (using e.g. the OpenMOLE GUI plots)
+	\item Direct sampling can be useful both as preliminary experiments and 
 \end{itemize}
 
-%\textit{Resources:}
-% - one script running directsampling
-% - example of grid explo results
-% - example of Saltelli
-
 }
+
+
+
+
+
 
 
 
