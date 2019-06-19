@@ -80,11 +80,28 @@
 
 
 
-\centering
+\begin{center}
+%\includegraphics[width=\textwidth]{figures/zombieGUI.png}
+\includegraphics[width=\textwidth]{figures/zombieland_gui.png}
+\end{center}
 
-\includegraphics[width=\textwidth]{figures/zombieGUI.png}
+\medskip
+
+\footnotesize
+
+\textit{Local scale agent-based model}
 
 }
+
+\sframe{Let's get your hands on it}{
+  
+  \begin{itemize}
+  	\item A submodel is available at  \url{https://om.exmodelo.org/coop}. Try the GUI and changing parameters
+  	\item Most of next courses will be based on that model (additional processes will be detailed when needed)
+  \end{itemize}
+  
+}
+
 
 
 \sframe{Overview of the model}{
@@ -133,11 +150,11 @@ Multiple approaches to pedestrian simulations:
 \medskip
 
 \begin{itemize}
-	\item Social force models (first and second order) \cite{}
-	\item Granular flows
-	\item Behavioral models
-	\item Cellular automatons
-	\item Potential
+	\item Social force models \cite{helbing1995social}
+	\item Granular flows \cite{cristiani2011multiscale}
+	\item Behavioral models \cite{antonini2006discrete}
+	\item Cellular automatons \cite{burstedde2001simulation}
+	\item Potential field \cite{jian2014perceived}
 \end{itemize}
 
 \medskip
@@ -147,10 +164,6 @@ Multiple approaches to pedestrian simulations:
 }
 
 
-\sframe{Information and rescues}{
- 
-}
-
 \sframe{Agents state machines}{
 
 \includegraphics[width=0.51\textwidth]{figures/humanStateMachine.png}\hspace{0.2cm}\includegraphics[width=0.46\textwidth]{figures/zombieStateMachine.png}
@@ -158,6 +171,24 @@ Multiple approaches to pedestrian simulations:
 % launch simu https://om.exmodelo.org/coop/
 
 }
+
+\sframe{Information and rescues}{
+ 
+ \begin{itemize}
+ 	\item Some spots allows informed humans to be rescued and get out of the world
+ 	\item An initial ratio of humans \texttt{humanInformRatio} is informed of the existence of rescues
+ 	\item Informed humans which are not in a panicking state follow a specific potential field leading to rescues
+ 	\item A human can inform an other one at the same location with a probability \texttt{humanInformProbability}
+ \end{itemize}
+ 
+\medskip
+
+\justify
+
+With the additional parameter \texttt{humanFollowProbability} (probability for a human to begin running and follow when they encounter an other running human), the submodel with three parameters is aimed at studying cooperation between humans.
+ 
+}
+
 
 \sframe{A flexible and more general model}{
 
@@ -173,14 +204,6 @@ Multiple approaches to pedestrian simulations:
 }
 
 
-\sframe{Let's get your hands on it}{
-  
-  \begin{itemize}
-  	\item Try the GUI and changing parameters
-  	\item Most of next courses will be based on that model (additional processes will be detailed when needed)
-  \end{itemize}
-  
-}
 
 
 \sframe{The scala model}{
@@ -189,6 +212,25 @@ Multiple approaches to pedestrian simulations:
 % (transition for next course)
 
 % say that plugin - as a jar
+
+
+%\texttt{
+import zombies._
+
+    val rng = new scala.util.Random(replication)
+
+    val result = zombieInvasion(
+      humanFollowProbability = humanFollowProbability,
+      humanInformedRatio =humanInformedRatio,
+      humanInformProbability = humanInformProbability,
+      zombies = 4,
+      humans = 250,
+      steps = 500,
+      random = rng)
+
+    val humansDynamic = result.humansDynamic(20)
+    val zombiesDynamic = result.zombiesDynamic(20)
+%}
 
 }
 
