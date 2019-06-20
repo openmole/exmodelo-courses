@@ -10,6 +10,7 @@
 %\includegraphics[scale=2]{figures/logos/openmole.png}}
 
 
+
 \begin{document}
 
 \begin{frame}[plain]
@@ -181,6 +182,139 @@
 \sframe{Study our model's parcimony}{
 
 }
+
+
+
+
+ 
+
+\sframe{Few maths remarks}{
+	Recall the ODE system:	
+	
+	\bigskip
+			
+\fontsize{8pt}{9pt}\selectfont
+		$\left\{
+		\begin{array}{lcl}
+			\dv{H_{walk}}{t}  & = &  -(panic0 * \frac{Z_{walk}+Z_{run}}{N} + inf) * H_{walk} + exhaustH * H_{run}  \\
+			\tmspace{1mu}&& \\
+			\dv{H_{run}}{t} & = & panic0 * \frac{Z_{walk}+Z_{run}}{N} * H_{walk} - (exhaustH + inf) * H_{run} \\
+			\tmspace{1mu}&& \\
+			\dv{Z_{walk}}{t} & = & inf * (H_{walk} + H_{run}) - hunt0 * \frac{H_{walk}+H_{run}}{N} * Z_{walk} + exhaustZ * Z_{run} \\
+			\tmspace{1mu}&& \\
+			\dv{Z_{run}}{t} & = & hunt0 * \frac{H_{walk}+H_{run}}{N}* Z_{walk} - exhaustZ * Z_{run}
+		\end{array}
+		\right.
+		$
+%\normalsize
+\bigskip
+\bigskip
+
+Where $N := H_{walk}+H_{run}+Z_{walk}+Z_{run}$
+
+\bigskip
+\normalsize
+%
+First-order \textbf{nonlinear} (autonomous) ordinary differential equation... a priori no explicit solution, hence numerical solutions.
+%Equation différentielle \textbf{non linéaire} d'ordre 1... a priori on ne sait pas trouver de solutions explicites, d'où la résolution numérique
+
+}
+
+
+
+
+\sframe{Cauchy Problem}{
+
+Let's note $X(t) :=  (H_{walk}(t),H_{run}(t),Z_{walk}(t),Z_{run}(t)) $
+
+We have the following Cauchy problem:
+
+$$ 
+\left\{
+\begin{array}{llll}
+X'(t) & = &  F(X(t)) & \\ 
+X(0) & = & (x_0,y_0,z_0,w_0) & \text{ initial condition}
+\end{array}
+\right.
+$$
+
+where  
+
+$$ (x_0,y_0,z_0,w_0)  \in \mathbb{R}_+^* $$
+
+and
+
+\fontsize{7pt}{8pt}\selectfont
+$$\begin{array}{lllll}
+F & : & \mathbb{R}^4 & \to     & \mathbb{R}^4 \\
+  &   &   (x,y,z,w)       &  \mapsto &  F(x,y,z,w) := ((panic0 * \frac{z+w}{x+y+z+w} + inf) * x + exhaustH * y,  \\
+  & & & &  \hspace{2cm} \ldots,\ldots,\ldots)
+\end{array}$$
+
+\normalsize
+Cauchy-Lipschitz theorem : Existence and uniqueness to a solution of the Cauchy problem.
+
+}
+
+
+
+
+\sframe{Total population size}{
+
+Summing the 4 equations, we have:
+
+$$ \dv{N}{t} = \dv{H_{walk}}{t} + \dv{H_{run}}{t} + \dv{Z_{walk}}{t} + \dv{Z_{run}}{t} =0 $$
+
+So $N(t)$ is constant:
+$$ N(t) = N(0), \text{ for all } t.$$
+
+We find back that the population size (human + zombies) is constant : natural !
+
+}
+
+
+
+\sframe{Human / zombies population size}{
+
+Let's note $ H := H_{walk} + H_{run}$
+
+Summing the first equations, we have:
+
+$$ \dv{H}{t} = \dv{H_{walk}}{t} + \dv{H_{run}}{t}  = - inf (H_{walk}(t) +H_{run}(t)) = - inf  H(t)$$
+
+First-order linear ordinary differential equation with constant coefficient: explicit solution !
+%Equation différentielle linéaire d'ordre 1 à coefficient constant pour $H$: on sait résoudre !
+
+$$ H(t) = H(0) * e^{-inf *t} $$
+
+Likewise, $$ Z(t) := Z_{walk} + Z_{run} = N - H(t) $$
+
+}
+
+
+\sframe{Equilibrium points}{
+
+
+Definition: The point $x \in \mathbb{R}^4$ is an equilibrium point for the differential equation $X' = F(X)$ if $F(X) = 0$.
+
+\bigskip
+\bigskip
+
+Here, there is a unique equilibrium point: $(0,0,0,N(0))$: all the population is composed of walking zombies.
+
+}
+
+
+\sframe{Link with Parcimony}{
+
+Theses 2 facts : $N(t)$ constant and solutions for $H$ and $Z$ are still valid for the system with additional mechanism.
+
+Not able to change the shape of the solutions of the equation of $H$ and $Z$ with such system modifications.
+
+}
+
+
+
 
 
 %% Stop numbering
