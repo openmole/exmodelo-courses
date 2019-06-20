@@ -1,13 +1,10 @@
 \documentclass{myBeamer}
 
 %% Title page
-\title[Short Title]{Long Title}
-\subtitle{Subtitle}
-\author[Short Author]{Author}
-\date{\today}
-\institute{Institut\\
-\bigskip
-\includegraphics[scale=2]{figures/logos/openmole.png}}
+\title{Calibration Profiles}
+\author{eX Modelo school}
+\date{June 25, 2019}
+\institute{\includegraphics[scale=1.5]{figures/logos/openmole.png}}
 
 
 \begin{document}
@@ -26,56 +23,129 @@
 }
 
 
-\section{Section}
+\section{Context}
 
-\sframe{Frame Title}{
-	Some text.
+\sframe{Calibration}{
+	\head{Reminder} You get the best parameter set to minimise a given fitness function\\
+	\bigskip
+	\begin{center}
+	\includegraphics[width=.75\textwidth]{figures/calibrationMono.png}
+	\end{center}
+	
+	\bigskip
+	
+	\visible<2->{
+	\head{Problem} You only get one parameter set!\\
+	\medskip
+	\visible<3>{$\rightarrow$ What is happening in the rest of the input space?}
+	}
 }
 
 
-\sframe{Frame Title}{
-	\begin{block}{Block Title}
-	\begin{itemize}
-		\item Item 1
-		\item Item 2
-		\item Item 3
-	\end{itemize}
-	\end{block}
+\sframe{Explore the input space}{
+	\begin{center}
+	How does a small variation of one of the parameters affect the model output?
+	\end{center}
 	
-	\begin{alertblock}{Alert Block}
-		Something important.
-	\end{alertblock}
+	\bigskip
+	
+	\head{Objective} Find outputs with a good fitness (but not the best) in different zones of the input space
+}
+
+
+\section{Method}
+
+\sframe{Process}{
+	\begin{center}
+	Control the variations of one parameter \head{$x_1$}\\
+	and calibrate over the other parameters\\
+	
+	\bigskip
+	
+	\head{$\rightarrow$ calibration profile of $x_1$}
+	\end{center}
+}
+
+\sframe{The algorithm}{
+	\begin{center}
+	\includegraphics[width=.75\textwidth]{figures/sampling.png}
+	\end{center}
+}
+
+\sframe{The algorithm}{
+	\begin{center}
+	\includegraphics[width=\textwidth]{figures/elitism.png}
+	\end{center}
+}
+
+\sframe{The algorithm}{
+	\begin{center}
+	\includegraphics[width=.75\textwidth]{figures/new_sampling.png}
+	\end{center}
+}
+
+\sframe{The algorithm}{
+	\begin{center}
+	\includegraphics[width=.75\textwidth]{figures/profile_approx.png}
+	\end{center}
+}
+
+
+\section{Interpretation}
+
+\sframe{New information}{
+	We know how \head{$x_1$} variations influence our model's fitness\\
+	
+	\bigskip
+	
+	\head{$\rightarrow$ solutions of an optimisation problem all along \head{$x_1$} domain}
+	
+	\bigskip
+	
+	\visible<2>{
+	\begin{itemize}
+		\item Does the parameter impact the model's capacity to produce plausible outcomes?
+		\item What is the variation interval of the parameter?
+		\item Is the parameter useful to the model?
+	\end{itemize}
+	}
+}
+
+\sframe{Typical shapes}{
+	\begin{center}
+	\includegraphics[width=\textwidth]{figures/profileInterpretation.png}
+	\end{center}
+}
+
+
+\section{Profile in OpenMOLE}
+
+\sframe{The ProfileEvolution constructor}{
+\begin{verbatim}
+%val param1 = Val[Double]
+%val param2 = Val[Double]
+%val fitness = Val[Double]
+%
+%ProfileEvolution(
+%  evaluation = modelTask,
+%  objective = fitness,
+%  x = param1,
+%  nX = 20,
+%  genome = Seq(
+%      param1 in (0.0, 99.0),
+%      param2 in (0.0, 99.0)
+%  ),
+%  termination = 200000,
+%  parallelism = 500,
+%  stochastic = Stochastic(seed = seed, replications = 100),
+%  distribution = Island(10 minutes)
+%) hook(workDirectory / "path/to/a/directory")
+\end{verbatim}
 }
 
 
 %% Stop numbering
 \backupbegin
-
-\appendix
-\begin{frame}[plain]{Acknowledgements}
-	\begin{center}
-	\head{Lab:}\\
-	
-	\medskip
-	XXX\\
-	\medskip
-	YYY\\
-	\medskip
-	ZZZ\\
-	
-	\bigskip
-	Logos
-	\end{center}
-	
-	\visible<2>{
-	\bigskip
-	\begin{LARGE}
-		\begin{center}
-		\head{Thank you for your attention!}
-		\end{center}
-	\end{LARGE}
-	}
-\end{frame}
 
 %\input{parts/backup}
 

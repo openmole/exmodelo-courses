@@ -37,6 +37,7 @@
 
 \usepackage{quoting}
 \usepackage{xparse}
+\usepackage{listings}
 
 \newcommand{\refs}[3]{
 	{\tiny \textit{#1 et al. #2#3}}\hspace{-0.25cm}
