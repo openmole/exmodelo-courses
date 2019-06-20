@@ -2,6 +2,12 @@
 
 \input{../beamer_template/header.tex}
 
+\usepackage{pifont}
+%\newcommand{\cmark}{\textcolor{green}\ding{51}}
+%\newcommand{\xmark}{\textcolor{red}\ding{55}}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
 \title[DOE/Sensitivity Analysis]{Design of Experiments and Sensitivity analysis}
 \subtitle{Course and practical application}
 %\author[Short Author]{Author}
@@ -41,33 +47,29 @@
 
 %Compliqué la partie OFAT pour commencer ... non ?
 %J'ai pas compris les graphes [name = Paul] => plus expliciter et details. dire que plus de calcul.
+%dixit Juste: il faut que j'essaye de virer les jugements disciplinaires
+%dixit Paul : oui 
 
-dixit Juste: il faut que j'essaye de virer les jugements disciplinaires
-dixit Paul : oui 
+%S7: ajouter les plots sobol et grid sur le modèle zombie
 
-S7: ajouter les plots sobol et grid sur le modèle zombie
+%S8 : la formule est raide à cause des symboles un peu rares : le 1 à double barre, la fonction / produit $\Pi$ etc.. $\implies$ garder l'intuition de la discrepancy comme la faculté de "bien couvrir" l'espace
 
-S8 : la formule est raide à cause des symboles un peu rares : le 1 à double barre, la fonction / produit $\Pi$ etc.. $\implies$ garder l'intuition de la discrepancy comme la faculté de "bien couvrir" l'espace
+%Que signifie l'«intégrale» qui sert d'évaluation des séquences de nombres (1/N, 1/ $\sqrt N$ , etc..)
 
-
-
-Que signifie l'«intégrale» qui sert d'évaluation des séquences de nombres (1/N, 1/ $\sqrt N$ , etc..)
-
-S11 : cool , explicite et illustratif
+%S11 : cool , explicite et illustratif
 
 
-/!\ Intercaler la manip avant de passer à morris/saltelli /!\
+%/!\ Intercaler la manip avant de passer à morris/saltelli /!\
 
-manip : grid ; sobol
+%manip : grid ; sobol
 
-ajouter elements de texte explication formule discrepance
+%ajouter elements de texte explication formule discrepance
 
-manip : saltelli
+%manip : saltelli
 
-ajouter slides : tableau de synthese avantage / probleme of each method (after sampling and after sensitivity)
+%ajouter slides : tableau de synthese avantage / probleme of each method (after sampling and after sensitivity)
 
-aller plus lentement - chaque methode clair - segmenter.
-
+%aller plus lentement - chaque methode clair - segmenter.
 
 
 %\section{Introduction}
@@ -362,19 +364,127 @@ sampling = LHS(\\
 )
 }
 
+\bigskip
+
 \textbf{Sobol sampling}
 
 \texttt{
 sampling = SobolSampling(\\
-\hspace{1cm} 100,
-\hspace{1cm}x1 in (0.0,1.0),
-\hspace{1cm}x2 in (0.0,1.0)
+\hspace{1cm} 100,\\
+\hspace{1cm}x1 in (0.0,1.0),\\
+\hspace{1cm}x2 in (0.0,1.0)\\
 )
 }
 
+\bigskip
+
+$\rightarrow$ \textbf{Practice: } test these samplings in \texttt{directsampling.oms}
+
+
 
 }
 
+
+\sframe{Summary}{
+
+\textbf{Summary of samplings}
+
+\medskip
+
+\begin{columns}
+	\begin{column}{0.35\linewidth}
+	
+	\bigskip
+	\bigskip
+	
+	One factor at a time
+	
+	\medskip
+	
+	Complete plan
+	
+	\medskip
+	
+	LHS/Sobol
+		
+	\end{column}
+	\begin{column}{0.2\linewidth}
+		
+		\textbf{Coverage}
+		
+		\bigskip
+		
+		{\textcolor{red}
+		\xmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+			
+	\end{column}
+	
+	\begin{column}{0.25\linewidth}
+		
+		\textbf{Interpretability}
+		
+		\bigskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{red}
+		\xmark
+		}	
+	\end{column}
+	
+	\begin{column}{0.2\linewidth}
+		
+		\textbf{Budget}
+		
+		\bigskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{red}
+		\xmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}	
+	\end{column}
+
+	
+	
+	
+\end{columns}
+
+
+}
 
 
 
