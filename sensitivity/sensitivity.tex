@@ -65,7 +65,7 @@
 
 %ajouter elements de texte explication formule discrepance
 
-%manip : saltelli
+%manip : saltelli - NO : morris
 
 %ajouter slides : tableau de synthese avantage / probleme of each method (after sampling and after sensitivity)
 
@@ -277,8 +277,15 @@ Different methods for improving sampling in numerical experiments given limited 
 L2-discrepancy given for normalized data points $\mathbf{X}=(x_{ij})\in \left[0,1\right]^d$ by
 
 \[
-\left\lVert \mathbf{t} \in \left[0,1\right]^d \mapsto \frac{1}{n}\sum_i \mathbbm{1}_{\prod_j x_{ij}<t_j} - \prod_j t_j \right\rVert_2
+\left\lVert \mathbf{t} = (t_j) \in \left[0,1\right]^d \mapsto \frac{1}{n}\sum_i \mathbbm{1}_{\prod_j x_{ij}<t_j} - \prod_j t_j \right\rVert_2
 \]
+
+\bigskip
+\bigskip
+
+\footnotesize
+
+\textit{Explanation: $\prod_j t_j$ is the volume of the hypercube between $\mathbf{t}$ and the origin; the sum of indicator functions counts the points within that hypercube; the difference between expected volume and point number is integrated over the whole hypercube.}
 
 }
 
@@ -384,12 +391,19 @@ $\rightarrow$ \textbf{Practice: } test these samplings in \texttt{directsampling
 
 }
 
+\sframe{Result examples for the Zombie model}{
+
+% TODO plots direct sampling
+
+}
+
 
 \sframe{Summary}{
 
-\textbf{Summary of samplings}
+\textbf{Summary of samplings characteristics}
 
-\medskip
+\bigskip
+\bigskip
 
 \begin{columns}
 	\begin{column}{0.35\linewidth}
@@ -535,6 +549,32 @@ Introduced by \cite{morris1991factorial}, improved by \cite{saltelli2004sensitiv
 
 }
 
+\sframe{Morris method}{
+
+\justify
+
+Let $\delta$ be step for parameter variation (all assumed normalized in $[0;1]$), the \textit{elementary effect} for parameter $i$ on output $Y$ at point $\vec{x}$ is given by 
+
+\[
+\varepsilon_i (\vec{x}) = \frac{Y(\vec{x}+\delta\cdot \vec{e}_i) - Y(\vec{x})}{\delta}
+\]
+
+With $N$ parameter trajectories randomly sampled (each trajectory varying all parameters), the sensitivity index is given by
+\[
+\mu_i = \frac{\sum_{k=1}^N \varepsilon_i (\vec{x}_k)}{N}
+\]
+and complementary indices by
+
+\[
+\sigma_i = \frac{\sum_{k=1}^N \left(\varepsilon_i (\vec{x}_k) - \mu_i\right)^2}{N}
+\]
+
+\[
+\mu^{\ast}_i = \frac{\sum_{k=1}^N \left|\varepsilon_i (\vec{x}_k)\right|}{N}
+\]
+
+}
+
 
 \sframe{Morris}{
 
@@ -543,6 +583,10 @@ Introduced by \cite{morris1991factorial}, improved by \cite{saltelli2004sensitiv
 \bigskip
 
 \includegraphics[width=\textwidth]{figures/morris_code.png}
+
+\bigskip
+
+$\rightarrow$ \textbf{Practice: } explore the script \texttt{morris.oms}, comment the results obtained with a large-scale experiment \texttt{morrisresults}
 
 }
 
@@ -590,11 +634,98 @@ is the expected relative variance if all factors but $X_i$ are fixed (includes i
 
 \includegraphics[width=\textwidth]{figures/saltellicode.png}
 
-\bigskip
-
-$\rightarrow$ \textbf{Practice: } explore the script \texttt{saltelli.oms}
 
 }
+
+
+
+\sframe{Summary}{
+
+\textbf{Summary of sensitivity methods}
+
+\bigskip
+\bigskip
+
+\begin{columns}
+	\begin{column}{0.35\linewidth}
+	
+	\bigskip
+	\bigskip
+	
+	Morris
+	
+	\medskip
+	
+	Saltelli
+	
+
+		
+	\end{column}
+	\begin{column}{0.2\linewidth}
+		
+		\textbf{Coverage}
+		
+		\bigskip
+		
+		{\textcolor{red}
+		\xmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+	
+			
+	\end{column}
+	
+	\begin{column}{0.25\linewidth}
+		
+		\textbf{Interpretability}
+		
+		\bigskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+			
+	\end{column}
+	
+	\begin{column}{0.2\linewidth}
+		
+		\textbf{Budget}
+		
+		\bigskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{red}
+		\xmark
+		}
+			
+	\end{column}
+
+	
+	
+	
+\end{columns}
+
+
+}
+
+
 
 
 
@@ -602,8 +733,13 @@ $\rightarrow$ \textbf{Practice: } explore the script \texttt{saltelli.oms}
 
 \textbf{Take-home messages: }
 
+\medskip
+
 \begin{itemize}
-	\item Direct sampling can be useful both as preliminary experiments and 
+	\item Direct sampling can be useful as preliminary experiments, but also experiments in themselves
+	\item Sensitivity analysis methods are useful for a global knowledge on influence of factors
+	\item Find a good balance interpretability/computational budget/information extracted
+	\item The experiments you choose depend on your questions but also on your discipline
 \end{itemize}
 
 }
