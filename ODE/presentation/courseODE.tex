@@ -3,11 +3,9 @@
 %% Title page
 \title{Ordinary Differential Equations}
 \subtitle{as an alternative to agent-based modelling}
-\author{Module}
-\date{\today}
-%\institute{Institut\\
-%\bigskip
-%\includegraphics[scale=2]{figures/logos/openmole.png}}
+\author{eX Modelo school}
+\date{June 26, 2019}
+\institute{\includegraphics[scale=1.5]{figures/logos/openmole.png}}
 
 
 \begin{document}
@@ -169,17 +167,56 @@
 
 \sframe{New mechanisms}{
 	\begin{center}
-	\head{What mechanisms could we add to better represent the complexity of our Zombie situation?}
+	What mechanisms could we add to better represent the complexity of our Zombie situation?
 	\end{center}
 	
 	\bigskip
 	
+	\visible<2->{
+	\head{The parcimony issue}
 	
+	\begin{itemize}
+		\visible<3->{\item Do the new mechanisms really improve the fitness?}
+		\visible<4->{\item Do we need them all?}
+		\visible<5->{\item What are the best combinations?}
+	\end{itemize}
+	}
 }
 
 
 \sframe{Study our model's parcimony}{
+	\head{Process}
+	
+	\begin{itemize}[<+->]
+		\item Embed the model in OpenMOLE \head{DONE}
+		\item Define a \head{second} fitness function
+		\item \head{Modify} the calibration task
+	\end{itemize}
+}
 
+
+\sframe{Pareto front}{
+	\includegraphics[width=\textwidth]{figures/parcimony/plot_parcimony.png}
+}
+
+
+\sframe{Dynamics for 0 mechanism activated}{
+	\includegraphics[width=\textwidth]{figures/parcimony/parcimony_dynamics_0.png}
+}
+
+
+\sframe{Dynamics for 1 mechanism activated}{
+	\includegraphics[width=\textwidth]{figures/parcimony/parcimony_dynamics_1.png}
+}
+
+
+\sframe{Dynamics for 2 mechanisms activated}{
+	\includegraphics[width=\textwidth]{figures/parcimony/parcimony_dynamics_2.png}
+}
+
+
+\sframe{Dynamics for 3 mechanisms activated}{
+	\includegraphics[width=\textwidth]{figures/parcimony/parcimony_dynamics_3.png}
 }
 
 
