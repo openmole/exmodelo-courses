@@ -1,0 +1,57 @@
+// ODE parameters
+val panic0 = Val[Double]
+val staminaH = Val[Double]
+val hunt0 = Val[Double]
+val staminaZ = Val[Double]
+XXX
+
+// Initial conditions
+val statesInit = Val[Vector[Double]]
+
+// Time steps
+val tMax = Val[Int]
+
+// Outputs
+val humansWalking = Val[Array[Double]]
+val humansRunning = Val[Array[Double]]
+val zombifiedWalking = Val[Array[Double]]
+val zombifiedRunning = Val[Array[Double]]
+
+
+val model =
+  ScalaTask("""
+    import _root_.zombies.ode._
+  
+    val (humansWalkingSampled, humansRunningSampled, zombifiedWalkingSampled, zombifiedRunningSampled) = Model.run(
+      panic0 = panic0, staminaH = staminaH, hunt0 = hunt0, staminaZ = staminaZ, inf0 = inf0,
+      out0 = out0, fightback = fightback, die0 = die0,
+      statesInit = statesInit,
+      tMax = tMax
+    )
+    
+    val humansWalking = humansWalkingSampled.toArray
+    val humansRunning = humansRunningSampled.toArray
+    val zombifiedWalking = zombifiedWalkingSampled.toArray
+    val zombifiedRunning = zombifiedRunningSampled.toArray
+  """) set (
+    inputs += (panic0, staminaH, hunt0, staminaZ, inf0),
+    outputs += (humansWalking, humansRunning, zombifiedWalking, zombifiedRunning),
+    
+    // Default values
+    // ODE parameters
+    panic0 := 9.262827265276236,
+    staminaH := 0.7865921714184576,
+    hunt0 := 46.76556677416052,
+    staminaZ := 0.3145364928802022,
+    inf0 := 0.020763992319483907,
+    // Initial conditions
+    statesInit := Vector(250.0, 0.0, 0.0, 4.0),
+    // Time steps
+    tMax := 500,
+    
+    plugins += pluginsOf(zombies.ode.Model)
+)
+
+
+// Test workflow
+XXX

@@ -1,0 +1,15 @@
+import _file_.odeModel_parcimony_4._
+
+
+val parcimony = Val[Int]
+
+val parcimonyTask =
+    ScalaTask("""
+        val parcimony = Seq(panic0, hunt0, out0, fightback, die0).filter(_ == 0.0).length
+    """) set (
+        inputs += (panic0, hunt0, out0, fightback, die0),
+        outputs += (parcimony)
+    )
+
+
+model -- (parcimonyTask hook display)

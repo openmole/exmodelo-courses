@@ -121,7 +121,29 @@
 \section{Profile in OpenMOLE}
 
 \sframe{The ProfileEvolution constructor}{
-	\includegraphics[scale=1]{figures/ProfileEvolution.png}
+	\begin{center}
+	\includegraphics[width=\textwidth]{figures/ProfileEvolution.png}
+	\end{center}
+}
+
+\sframe{The ProfileEvolution constructor}{
+	\begin{center}
+	\includegraphics[width=.75\textwidth]{figures/ProfileEvolution.png}
+	\end{center}
+	
+	\begin{table}
+	\begin{center}
+	\makegapedcells
+	\begin{tabular}{ll}
+		\head{evaluation} & the model task\\
+		\head{objective} & the fitness functio to minimise\\
+		\head{x} & the parameter to profile\\
+		\head{nX} & the size of the subintervals in x domain\\
+		\head{genome} & a list of the model input parameters\\
+		& with their variation ranges
+	\end{tabular}
+	\end{center}
+	\end{table}
 }
 
 
