@@ -1,0 +1,48 @@
+// ODE parameters
+XXX
+
+// Initial conditions
+XXX
+
+// Time steps
+XXX
+
+// Outputs
+val humansWalking = Val[Array[Double]]
+val humansRunning = Val[Array[Double]]
+val zombifiedWalking = Val[Array[Double]]
+val zombifiedRunning = Val[Array[Double]]
+
+
+val model =
+  ScalaTask("""
+    import _root_.zombies.ode._
+  
+    val (humansWalkingSampled, humansRunningSampled, zombifiedWalkingSampled, zombifiedRunningSampled) = Model.run(
+      panic0 = panic0, staminaH = staminaH, hunt0 = hunt0, staminaZ = staminaZ, inf0 = inf0,
+      statesInit = statesInit,
+      tMax = tMax
+    )
+    
+    val humansWalking = humansWalkingSampled.toArray
+    val humansRunning = humansRunningSampled.toArray
+    val zombifiedWalking = zombifiedWalkingSampled.toArray
+    val zombifiedRunning = zombifiedRunningSampled.toArray
+  """) set (
+    inputs += (XXX),
+    outputs += (humansWalking, humansRunning, zombifiedWalking, zombifiedRunning),
+    
+    // Default values
+    // ODE parameters
+    XXX
+    // Initial conditions
+    XXX
+    // Time steps
+    XXX
+    
+    plugins += pluginsOf(zombies.ode.Model)
+)
+
+
+// Test workflow
+XXX

@@ -34,3 +34,5 @@ plot_dynamics <- simu %>%
     ylab("Nb of people per compartment") +
     theme_bw()
 plot_dynamics
+
+ggsave("../presentation/figures/SIRdynamics.png", plot_dynamics, width = 15, units = "cm")

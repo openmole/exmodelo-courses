@@ -1,0 +1,23 @@
+XXX
+
+
+def profile(variable: Val[Double]) = {
+    ProfileEvolution(
+      evaluation = XXX,
+      objective = XXX,
+      x = variable,
+      nX = 50,
+      genome = XXX,
+      termination = 20000,
+      parallelism = 200
+    ) XXX
+}
+
+val listVariables = Seq(XXX)
+
+val listExec = for {
+  i <- listVariables
+} yield profile(i)
+
+
+EmptyTask() -- (listExec)

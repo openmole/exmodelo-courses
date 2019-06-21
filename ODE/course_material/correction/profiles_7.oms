@@ -1,0 +1,31 @@
+import _file_.odeModel_1._
+import _file_.odeFitness_2._
+
+
+def profile(variable: Val[Double]) = {
+    ProfileEvolution(
+      evaluation = model -- fitnessTask,
+      objective = fitness,
+      x = variable,
+      nX = 50,
+      genome = Seq(
+        panic0 in (0.0, 20.0),
+        staminaH in (0.0, 5.0),
+        hunt0 in (20.0, 60.0),
+        staminaZ in (0.0, 5.0),
+        inf0 in (0.0, 1.0)
+      ),
+      termination = 20000,
+      parallelism = 200,
+      distribution = Island(5 minutes)
+    ) hook(workDirectory / "profiles" / s"${variable.name}", 100)
+}
+
+val listVariables = Seq(panic0, staminaH, hunt0, staminaZ, inf0)
+
+val listExec = for {
+  i <- listVariables
+} yield profile(i)
+
+
+EmptyTask() -- (listExec)

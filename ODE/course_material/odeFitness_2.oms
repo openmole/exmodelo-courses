@@ -1,0 +1,44 @@
+XXX
+
+
+// Zombieland data
+XXX
+
+// Outputs
+XXX
+
+
+val fitnessTask =
+    ScalaTask("""
+        // Zombieland data
+        val columns = dataFile.lines.drop(1).map(_.split(",")).toVector
+
+        val realHumansWalking = columns.map(_(6).toDouble)
+        val realHumansRunning = columns.map(_(0).toDouble)
+        val realZombifiedWalking = columns.map(_(9).toDouble)
+        val realZombifiedRunning = columns.map(_(3).toDouble)
+    
+        // Fitness calculation
+        def fitnessCalc(real: Vector[Double], simu: Array[Double]) = {
+            (real zip simu).map { case(r, s) => (r - s) * (r - s) }.sum
+        }
+        
+        val fitHW = fitnessCalc(realHumansWalking, humansWalking)
+        val fitHR = fitnessCalc(realHumansRunning, humansRunning)
+        val fitZW = fitnessCalc(realZombifiedWalking, zombifiedWalking)
+        val fitZR = fitnessCalc(realZombifiedRunning, zombifiedRunning)
+
+        val fitness = fitHW + fitHR + fitZW + fitZR
+    """) set (
+        inputs += (XXX),
+        inputs += (XXX),
+        outputs += (XXX),
+    
+        // Default values
+        // Zombieland data
+        XXX
+    )
+
+
+// Test workflow
+XXX
