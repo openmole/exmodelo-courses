@@ -1,0 +1,62 @@
+\documentclass{myBeamer}
+
+
+%%% Title page
+\title{Mathematical modelling of between-pathogen interactions in the human host}
+\subtitle{Application to influenza viruses and pneumococcus}
+
+\author{Hélène Arduin}
+
+\date{June 26, 2019}
+
+\institute{
+	Biostatistiques, Biomathématique, Pharmacoépidémiologie\\
+	et Maladies Infectieuses\\
+	UMR 1181 Inserm, UVSQ, Institut Pasteur\\
+  	\bigskip
+	\includegraphics[height=.7cm]{figures/logos/inserm.jpg}
+	\hspace{.25cm}
+	\includegraphics[height=.7cm]{figures/logos/uvsq.jpg}
+	\hspace{.25cm}
+	\includegraphics[height=.7cm]{figures/logos/pasteur.png}\\
+}
+
+
+\begin{document}
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+\addtocounter{framenumber}{-1}
+
+
+\AtBeginSection{
+	\frame{
+		\sectionpage
+	}
+}
+
+
+\input{parts/context}
+\input{parts/model}
+\input{parts/analysis}
+\input{parts/discussion}
+
+
+%% Numérotation arrêtée
+\backupbegin
+
+\appendix
+\begin{frame}[plain]
+	\begin{LARGE}
+		\begin{center}
+		\head{Thank you for your attention!}
+		\end{center}
+	\end{LARGE}
+\end{frame}
+
+%\input{parts/backup}
+
+\backupend
+
+\end{document}
