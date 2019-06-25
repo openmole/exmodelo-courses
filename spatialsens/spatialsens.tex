@@ -2,6 +2,12 @@
 
 \input{../beamer_template/header.tex}
 
+\usepackage{pifont}
+%\newcommand{\cmark}{\textcolor{green}\ding{51}}
+%\newcommand{\xmark}{\textcolor{red}\ding{55}}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
 \title[Spatial sensitivity]{Spatial sensitivity analysis}
 \subtitle{Course and practical application}
 \author[Short Author]{Author}
@@ -28,15 +34,359 @@
 }
 
 
-\sframe{Outline}{
-\tableofcontents
+\sframe{Contents of this module}{
+
+ %- Generation of spatial synthetic data
+ %    - microscopic scale (buildings)
+ %    - mesoscopic scale (population grid)
+ %    - macroscopic scale (system of cities)
+ %- Perturbation of real datasets
+ %- Spatial indicators for model outputs
+ %- Practice
+
+	\tableofcontents
+
 }
 
 
 
-\section{Introduction}
 
-\sframe{Context}{
+\section{Scientific context}
+
+% - slides of evolutive urban theory
+% - genesis of openmole etc.
+% - recall simpoplocal / marius
+% - deepening into openmole's roots ?
+
+% + perspectives ? -> in opening ? ~ because practice
+
+
+
+
+\sframe{Modeling and simulation in geography}{
+
+% Cette présentation propose d'illustrer la question de la validation des modèles de simulation, dans le cas particulier de la géographie
+
+%The role of simulation models in the production of knowledge has significantly shifted in recent years, accompanied with a transformation of practices, including methods and tools. This presentation aims at describing these mutations from the point of view of theoretical and quantitative geography.
+
+\begin{columns}
+
+	\begin{column}{0.5\textwidth}
+	\centering
+	
+	\includegraphics[width=0.6\textwidth]{figures/openshaw.png}
+	
+	\footnotesize
+\textit{Geographical analysis machine \cite{openshaw1987mark}}
+	
+	\medskip
+	\hrule
+	\medskip
+	
+	\includegraphics[width=0.55\textwidth,height=0.3\textheight]{figures/intro_RBD_lattice.png}
+	
+	\footnotesize
+\textit{Hybrid urban morphogenesis \cite{raimbault2014hybrid}}
+	
+
+	\end{column}
+	\vrule{}
+	\begin{column}{0.5\textwidth}
+	\centering
+	
+	\includegraphics[width=0.7\textwidth]{figures/simpop1.png}
+	
+	\footnotesize
+\textit{Simpop 1 model\cite{sanders1997simpop}}
+
+	\medskip
+
+	\hrule
+	
+	\medskip
+
+	\includegraphics[width=0.6\textwidth]{figures/setup_synth_1_tick100.png}
+	
+	\footnotesize
+	\textit{SimpopNet model \cite{schmitt2014modelisation}}
+	
+	\end{column}
+
+
+\end{columns}
+
+}
+
+
+
+\sframe{Geographical systems and complexity}{
+
+% pour laquelle la prépondérance de l'espace augmente la complexité des modèles
+
+\textit{Necessity of simulation models in geography induced by complexities of these systems ?}
+
+\bigskip
+
+\begin{itemize}
+	\item Ontological complexity \cite{pumain2003approche}
+	\item Dynamical complexity: non-ergodicity and path-dependancy \cite{pumain2012urban}
+	\item Complexity and co-evolution
+	\item Complexity and emergence
+\end{itemize}
+
+
+
+}
+
+
+\sframe{Theories and models}{
+
+Historical succession of epistemologies in the case of systems of cities
+\cite{varenne2017theories}: 
+
+\medskip
+
+\begin{enumerate}
+	\item Deduction from theory (top-down): Christaller
+	\item Induction from the empirical (bottom-up): Berry
+	\item Towards an abductive epistemology (iterative interaction theoretical-empirical): Pumain
+\end{enumerate}
+
+\medskip
+
+$\rightarrow$ simulation allows synthesis
+
+}
+
+
+
+
+
+\sframe{Towards new practices: ERC Geodivercity}{
+
+% presentation generale de Geodivercity
+
+\begin{columns}
+\begin{column}{0.4\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{figures/urban-dynamics-simulation-models-geodivercity.png}
+\end{column}
+\begin{column}{0.6\textwidth}
+	Development of evolutive urban theory \cite{pumain2018evolutionary}
+	
+	\medskip
+
+	$\rightarrow$ Recurrent stylized facts on main systems of cities
+	
+	$\rightarrow$ Construction of simulation models (with an explicative purpose)
+	
+	$\rightarrow$ Tools and methods to explore simulation models
+	
+	\smallskip
+	
+	\includegraphics[width=\textwidth]{figures/openmole.png}
+		
+	
+\end{column}
+\end{columns}
+
+
+}
+
+\sframe{Evolutive Urban Theory}{
+\begin{columns}
+\column{0.7\textwidth}
+\centering
+\includegraphics[height=0.9\textheight]{figures/evoltheory_scales}
+
+\column{0.05\textwidth}
+
+\hspace{0.5cm}
+
+\column{0.25\textwidth}
+
+\footnotesize
+
+\textit{Systems of cities as co-evolutive systems in which interactions are crucial}
+	
+	\cite{pumain1997pour}
+	
+	\cite{pumain2008socio}
+	
+	\cite{pumain2018evolutionary}
+\end{columns}
+}
+
+
+\sframe{Construction of Knowledge across Domains}{
+
+% Existence of Knowledge Domains ?
+
+% Taking a step back, emerges a typology of domains in which knowledge was created but also necessary for the other domains in the genesis of the Evolutive Urban Theory. The collection of data and construction of datasets is a first requirement for any further knowledge. From data are extracted empirical stylized facts, from which are induced theoretical hypotheses. Theory can then be tested for falsification, in the empirical domain but also through models, for example by doing targeted experiments in models of simulation. New methods are developed to better explore them. Tools are crucial at each step, to implement model, do data mining for example or collect and format data for example. The previous analysis reveals how these domains are interdependent, are in a sense \emph{co-evolutive}.
+
+% illustration OpenMole / CalibProfile / Marius
+
+\centering
+
+\includegraphics[height=0.9\textheight]{figures/openmoleslide}
+
+
+\nocite{baffi:tel-01389347}
+\nocite{pumain2008socio}
+\nocite{reuillon2013openmole}
+\nocite{cottineau2015modular}
+\nocite{swerts2017database}
+\nocite{pumain1997pour}
+\nocite{pumain2010theorie}
+
+}
+
+\sframe{Evolutive urban theory}{
+
+% A particular entry is taken by the Evolutive Urban Theory [1] which postulates interactions between cities as main drivers of their growth.
+
+
+
+\includegraphics[height=0.7\textheight]{figures/evolurbantheory.pdf}
+
+\footnotesize
+\textit{\cite{raimbault2017applied} Citation network analysis of key publications in the evolutive urban theory}
+
+}
+
+
+
+\sframe{Calibration of SimpopLocal}{
+
+%Reverse approach: From output values to parameter values.
+
+SimpopLocal model calibrated with distributed NSGA2 on grid \cite{schmitt2014half}
+
+\medskip
+
+%Formalising the expectations
+\textit{Formalising the expectations as indicators: }
+
+\centering
+	
+	\includegraphics[width=\textwidth]{figures/slocal_fitness.png}
+
+}
+
+\sframe{SimpopLocal and calibration profile}{
+
+\textit{Computes the best calibration at fixed steps along one dimension.}
+ \cite{reuillon2015}
+ 
+ \medskip
+ 
+ \includegraphics[width=0.48\textwidth]{figures/PdiffusionZ.png}
+ \includegraphics[width=0.48\textwidth]{figures/InnovationLife.png}
+
+}
+
+
+\sframe{Unicity of mechanisms}{
+
+%Automate the confrontation of alternative hypothesis / mechanisms.
+
+\textit{Automate the confrontation of alternative hypothesis / mechanisms} \cite{cottineau2014evolution}
+
+\medskip
+
+\centering
+	
+	\includegraphics[width=\textwidth]{figures/simfamily.png}
+
+}
+
+\sframe{Multi-modeling (64 models)}{
+
+%64 models
+
+\centering
+
+\includegraphics[width=0.8\textwidth]{figures/marius_complexification.png}
+
+}
+
+
+\sframe{Exemple of concurrent hypothesis}{
+
+
+%Exchange mechanism:
+
+%Market based
+%Centrally planned
+
+\textbf{Exchange mechanism: } market vs centralized
+
+\medskip
+
+%City growth mechanism:
+%Purely inter-urban interactions
+%Influenced by environmental situation
+
+\textbf{City growth: } interurban interactions vs environmental situation
+
+\medskip
+
+\centering
+
+\includegraphics[width=0.5\textwidth]{figures/system_mec.png}
+
+}
+
+
+\sframe{Calibration of model family}{
+
+%
+\textit{Compute the best set of parameters for all 64 models.}
+
+\bigskip
+
+\centering
+
+\includegraphics[width=\textwidth]{figures/varius_big.png}
+
+% http://shiny.parisgeo.cnrs.fr/VARIUS/
+
+}
+
+
+
+
+\sframe{Other example of multi-modeling}{
+
+\textit{Benchmark of growth models for systems of cities} \cite{raimbault2018systematic}
+
+\centering
+
+\includegraphics[width=0.85\textwidth]{figures/CN_zoomed.png}
+
+}
+
+
+
+
+
+
+\sframe{PSE algorithm on the MARIUS model}{
+
+\textit{Diversity of urban systems dynamics produced by the MARIUS model} \cite{10.1371/journal.pone.0138212}
+
+\centering
+
+\includegraphics[width=0.6\textwidth]{figures/pse_marius.png}
+
+}
+
+
+
+
+
+
+\sframe{Sensitivity analysis issues in geography}{
 
 \textit{Classical problems in geography and spatial sciences :}
 
@@ -44,11 +394,72 @@
 
 \begin{itemize}
 	\item Modifiable Areal Unit Problem
-	\item Dependancy to scale of processes
+	\item Dependancy of processes to scale
 	\item Spatial non-stationarity
 	\item Fuzzy and noisy data
 	\item Genericity/particularity 
 \end{itemize}
+
+}
+
+
+\sframe{The Modifiable Areal Unit Problem}{
+
+\begin{center}
+	\includegraphics[height=0.9\textheight]{figures/maup.png}	
+\end{center}
+
+
+\medskip
+
+\footnotesize
+
+Wong, D. (2009). The modifiable areal unit problem (MAUP). The SAGE handbook of spatial analysis, 105, 23.
+
+}
+
+
+\sframe{Multiscalar systems}{
+
+\begin{center}
+	\includegraphics[width=0.9\textwidth]{figures/multiscale_morph.pdf}
+\end{center}
+
+}
+
+\sframe{Spatial non-stationarity}{
+
+\textit{Spatial non-stationarity of road network properties} \cite{raimbault2019urban}
+
+\centering
+
+\includegraphics[width=\textwidth]{figures/nwindics_nonstat.png}
+
+}
+
+
+\sframe{Noisy spatial data}{
+
+\textit{Assessment of data quality in OpenStreetMap} \cite{fan2014quality}
+
+\medskip
+
+\centering
+
+\includegraphics[height=0.9\textheight]{figures/osm_data_accuracy.png}
+
+}
+
+
+\sframe{Genericity and specificity}{
+
+\textit{Urban systems are simultaneously universal and particular} \cite{pumain2015multilevel}
+
+\medskip
+
+\centering
+
+\includegraphics[height=0.9\textheight]{figures/multilevelpumain_zipf.png}
 
 }
 
@@ -74,19 +485,9 @@ $\implies$ \textbf{spatial configuration are parameters too}
 
 
 
-\sframe{Contents of this module}{
 
- %- Generation of spatial synthetic data
- %    - microscopic scale (buildings)
- %    - mesoscopic scale (population grid)
- %    - macroscopic scale (system of cities)
- %- Perturbation of real datasets
- %- Spatial indicators for model outputs
- %- Practice
 
-	\tableofcontents
 
-}
 
 
 
@@ -140,6 +541,18 @@ Raimbault, J. and Perret, J., 2019. Generating urban morphologies at large scale
 % steps for dilation + steps for erosion
 
 
+Urban form indicators for building layouts:
+
+\medskip
+
+\begin{itemize}
+	\item density, number of buildings, average area
+	\item Moran index and average distance on rasterized representation
+	\item average detour in the free space
+	\item mathematical morphology indicators (steps for erosion and dilation) \cite{serra1994morphological}
+\end{itemize}
+
+
 }
 
 
@@ -150,7 +563,7 @@ Raimbault, J. and Perret, J., 2019. Generating urban morphologies at large scale
 \medskip
 
 \begin{center}
-	\includegraphics[height=0.9\textheight]{figures/spatialsens_examplegenerators.png}
+	\includegraphics[height=0.85\textheight]{figures/spatialsens_examplegenerators.png}
 \end{center}
 
 
@@ -160,10 +573,10 @@ Raimbault, J. and Perret, J., 2019. Generating urban morphologies at large scale
 
 \textit{Sampled districts from OpenStreetMap}
 
-\medskip
+%\medskip
 
 \begin{center}
-	\includegraphics[height=0.9\textheight]{figures/spatialsens_exampleosm.png}
+	\includegraphics[height=0.85\textheight]{figures/spatialsens_exampleosm.png}
 \end{center}
 
 }
@@ -191,25 +604,38 @@ Raimbault, J. and Perret, J., 2019. Generating urban morphologies at large scale
 
 \sframe{Point cloud}{
 
-\includegraphics[height=\textheight]{figures/spatialsens_points.png}
+\begin{center}\includegraphics[height=0.9\textheight]{figures/spatialsens_points.png}
+\end{center}
 
 }
 
 
 \sframe{Calibration}{
 
-\includegraphics{figures/spatialsens_distanceclasses.png}
+\includegraphics[width=\textwidth]{figures/spatialsens_distanceclasses.png}
 
 \medskip
 
-\textit{Why not calibrate ? Open question of fitting a point cloud}
+\textit{Why not use calibration heuristics? Open question of fitting a point cloud; issue of projecting in a reduced dimension space}
 
 }
 
 
 \sframe{Implementation in OpenMOLE}{
 
-% TODO spatialsmapling syntax 
+% spatialsmapling syntax 
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figures/blocksampling.png}
+\end{center}
+
+\medskip
+
+\justify
+
+$\rightarrow$ other generators have their own primitives (\texttt{ExpMixtureThresholdSpatialSampling}, \texttt{PercolationGridSpatialSampling}) and arguments (\textbf{see the doc})
+
+$\rightarrow$ explore the script \texttt{SpatialSampling.oms}
 
 }
 
@@ -218,17 +644,18 @@ Raimbault, J. and Perret, J., 2019. Generating urban morphologies at large scale
 
 \sframe{Synthetic population grids}{
 
-\textit{At the mesoscopic scale: population grid}
+\textit{At the mesoscopic scale: population grids}
 
-\nocite{raimbault2018calibration}
 
 \medskip
 
 
+\begin{itemize}
+	\item a reaction-diffusion model for population distributions
+	\item urban form measures at the mesoscopic scale
+	\item towards synthetic generators coupling population and road networks
+\end{itemize}
 
-
- - Reaction-diffusion model
- - Urban form measures
 
 
 Raimbault, J. (2018). Calibration of a density-based model of urban morphogenesis. PloS one, 13(9), e0203516.
@@ -308,9 +735,34 @@ $\rightarrow$ Output measured by morphological indicators: Moran index, average 
 }
 
 
+\sframe{Morphological indicators}{
+
+\begin{enumerate}
+\item Rank-size slope $\gamma$, given by $\ln \left( P_{\tilde{i}}/P_0\right) \sim k + \gamma\cdot \ln \left(\tilde{i}/i_0\right)$ where $\tilde{i}$ are the indexes of the distribution sorted in decreasing order.
+\item Entropy of the distribution:
+\begin{equation}
+\mathcal{E} = \sum_{i=1}^{M}\frac{P_i}{P}\cdot \ln{\frac{P_i}{P}}
+\end{equation}
+$\mathcal{E}=0$ means that all the population is in one cell whereas $\mathcal{E}=0$ means that the population is uniformly distributed.
+\item Spatial-autocorrelation given by Moran index, with simple spatial weights given by $w_{ij} = 1/d_{ij}$
+\[
+I = M \cdot \frac{\sum_{i\neq j} w_{ij} \left(P_i - \bar{P}\right)\cdot\left(P_j - \bar{P}\right)}{\sum_{i\neq j} w_{ij} \sum_{i}{\left( P_i - \bar{P}\right)}^2}
+\]
+\item Mean distance between individuals
+\[
+\bar{d} = \frac{1}{d_M}\cdot \sum_{i<j} \frac{P_i P_j}{P^2} \cdot d_{ij}
+\]
+where $d_M$ is a normalisation constant
+\end{enumerate}
+
+
+
+}
+
+
+
 \sframe{Model behavior}{
 
-% comment Arnaud : Les graphiques correspondent aux 4 exemples précédents ? Si oui les rappeler en petite vignette. -> NON
 
 \centering
 
@@ -318,7 +770,6 @@ $\rightarrow$ Output measured by morphological indicators: Moran index, average 
 
 \footnotesize\textit{Phase transitions of indicators unveiled by exploration of the parameter space (80000 parameter points, 10 repetitions each)}
 
-% comment Arnaud : Préciser (dimensionner)
 
 }
 
@@ -379,16 +830,123 @@ $\rightarrow$ Output measured by morphological indicators: Moran index, average 
 }
 
 
-\sframe{Generation of synthetic networks}{
 
-% cite alife
+\sframe{Network Generation model}{
+
+Network generated conditionally to population; at fixed time steps :
+
+\begin{enumerate}
+	\item Add new nodes preferentially to new population and connect them
+	\item \justify Variable heuristic for new links, among: nothing, random, gravity-based deterministic breakdown, gravity-based random breakdown (from \cite{schmitt2014modelisation}), cost-benefits (from \cite{louf2013emergence}), biological network generation (based on \cite{tero2010rules})
+\end{enumerate}
+
+\medskip
+
+\centering
+
+\frame{\includegraphics[width=0.32\textwidth]{figures/example_nwgrowth_tick0.png}}\frame{\includegraphics[width=0.32\textwidth]{figures/example_nwgrowth_tick2.png}}\frame{\includegraphics[width=0.32\textwidth]{figures/example_nwgrowth_tick10.png}}
 
 }
 
-\sframe{Coupled network-population generators}{
+
+
+
+\sframe{Biological network generation}{
+
+Model studied by~\cite{tero2010rules} : exploration and reinforcement by a slime mould searching for ressources
+
+\bigskip
+
+\includegraphics[width=0.32\textwidth]{figures/slimemould_tick1}
+\includegraphics[width=0.32\textwidth]{figures/slimemould_tick10}
+\includegraphics[width=0.32\textwidth]{figures/slimemould_tick20}\\
+\includegraphics[width=0.32\textwidth]{figures/slimemould_tick50}
+\includegraphics[width=0.32\textwidth]{figures/slimemould_tick101}
+\includegraphics[width=0.32\textwidth]{figures/slimemould_reseauFinal}\\
+
+\medskip
+
+\footnotesize
+\textit{Application to the design of optimal bus routes}
 
 }
 
+
+
+
+\sframe{Biological Network generation}{
+
+Adding new links with biological heuristic:
+
+\begin{enumerate}
+	\item Create network of potential new links, with existing network and randomly sampled diagonal lattice
+	\item Iterate for $k$ increasing ($k\in \{ 1,2,4 \}$ in practice) :
+	\begin{itemize}
+		\item Using population distribution, iterate $k\cdot n_b$ times the slime mould model to compute new link capacities
+		\item Delete links with capacity under $\theta_d$
+		\item Keep the largest connected component
+	\end{itemize}
+	\item Planarize and simplify final network
+\end{enumerate}
+
+\medskip
+
+\centering
+
+\frame{\includegraphics[width=0.6\textwidth]{figures/7-1-1-fig-networkgrowth-bioexample.jpg}}
+
+\footnotesize
+
+\textit{Intermediate stage for biological network generation}
+
+}
+
+
+
+\sframe{Model : Specification}{
+
+\includegraphics[width=\textwidth]{figures/coevol_mesocoevol}
+
+}
+
+
+
+
+\sframe{Generated Urban Shapes: Urban Form}{
+
+\centering
+
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_synthsetup}}\hspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_form-accessonly}}\hspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_form-droadonly}}\\\vspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_form-bwonly}}\hspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_form-closenessonly}}\hspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_form-poponly}}
+
+\footnotesize\textit{In order: setup; accessibility driven; road distance driven; betweenness driven; closeness driven; population driven.}
+
+}
+
+
+
+
+
+
+\sframe{Generated Urban Shapes: Network}{
+
+
+\centering
+
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_nw-connection}}\hspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_nw-random}}\hspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_nw-gravity}}\\\vspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_nw-rndbrkdwn}}\hspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_nw-cost}}\hspace{0.1cm}
+\frame{\includegraphics[width=0.28\textwidth]{figures/coevol_example_nw-bio}}
+
+\footnotesize\textit{In order: connection; random; deterministic breakdown; random breakdown; cost-driven; biological.}
+
+}
 
 
 
@@ -413,21 +971,73 @@ $\rightarrow$ Output measured by morphological indicators: Moran index, average 
 
 % simpopnet generator
 
+\textit{Synthetic system of cities and network for the SimpopNet model} \cite{raimbault2018unveiling}
+
+\medskip
+
+\begin{center}
+\includegraphics[height=0.8\textheight]{figures/simpopnet_Fig1.png}
+\end{center}
+
+
 }
 
-\sframe{Co-evolution models}{
+\sframe{Cities and networks}{
 
 % ex from cities nw paper
 
+\textit{Cities-network co-evolution model explored on synthetic systems of cities} \cite{raimbault2019modeling}
+
+\medskip
+
+\includegraphics[height=0.47\textheight]{figures/macrocoevol_example_virtual_0_t0.png}\hspace{0.2cm}\includegraphics[height=0.47\textheight]{figures/macrocoevol_example_virtual_0_tf.png}
+
 }
 
-\sframe{Other disciplines and spatial structures}{
+
+\sframe{Co-evolution model}{
+
+\includegraphics[height=0.8\textheight]{figures/macrocoevol_en.png}
+
+}
+
+
+\sframe{Other disciplines and spatial structures ?}{
 
 % morphogensis : interdisc ?
 
 % suggest: ecology (habitat / spatial niches ?) ; topography ; ?
 
+\textit{Spatial synthetic data in other disciplines ?}
+
+\medskip
+
+\begin{itemize}
+	\item spatial network generative models
+	\item other disciplines ? ecology ? geosciences \cite{mogheir2004characterizing} ?
+\end{itemize}
+
+
 }
+
+
+
+\sframe{Spatial form and function: Morphogenesis}{
+
+\vspace{-0.3cm}
+
+\includegraphics[width=\textwidth,height=0.82\textheight]{figures/intro_examples}
+
+\justify
+
+\vspace{-0.5cm}
+
+\footnotesize\textit{Sources (in order by column). Ants, Erosion, Game of Life: NetLogo Library ; Arbotron \cite{jun2005formation}; Industrial design \cite{Aage:2017aa}; Swarm chemistry \cite{sayama2007decentralized}}
+
+
+
+}
+
 
 
 \section{Perturbation of data}
@@ -462,18 +1072,25 @@ An example: simulating urban projects by modifying population of areas with a gi
 
 
 
-\section{Application: sensitivity to spatial configuration}
+\section{Sensitivity to spatial configuration}
 
 
 
 \sframe{Method flowchart}{
 
 \textit{General workflow to test the spatial sensitivity of simulation models}
-% TODO cit spacematters
+
+\medskip
+
+\footnotesize
+
+Raimbault, J., Cottineau, C., Texier, M. L., Néchet, F. L., \& Reuillon, R. (2018). Space Matters: extending sensitivity analysis to initial spatial conditions in geosimulation models. arXiv preprint arXiv:1812.06008.
+
+\bigskip
 
 \centering
 
-\includegraphics[width=\textwidth]{figures/spatialsens.png}
+\includegraphics[width=\textwidth]{figures/spatialsens_spacemattersworkflow.png}
 
 }
 
@@ -596,9 +1213,11 @@ I = \frac{N}{\sum_{i,j} w_{ij}} \cdot \frac{\sum_{i,j}w_{ij} \cdot (X_i - \bar{X
 }
 
 
-\sframe{Optimal autocorrelation spatial scales}{
+\sframe{Spatial autocorrelation regimes}{
 
 % example from EnergyPrice ?
+
+\includegraphics[width=\textwidth]{figures/moran_typicalscales.png}
 
 }
 
@@ -611,8 +1230,279 @@ I = \frac{N}{\sum_{i,j} w_{ij}} \cdot \frac{\sum_{i,j}w_{ij} \cdot (X_i - \bar{X
 
 \sframe{Geographically Weighted Regression}{
 
+\textit{GWR handles spatial non-stationarity with adaptative scale fitting} \cite{fotheringham2003geographically}
+
+\medskip
+
+\begin{center}
+\includegraphics[width=\textwidth]{figures/gwr_energyprice.png}
+\end{center}
+
+\footnotesize
+
+Raimbault, J., \& Bergeaud, A. (2017). The cost of transportation: Spatial analysis of us fuel prices. arXiv preprint arXiv:1706.07467.
+
 
 }
+
+
+\section{Synthesis}
+
+\sframe{}{
+
+
+
+\begin{columns}
+	\begin{column}{0.45\linewidth}
+	
+	\bigskip
+	\bigskip
+	
+	Micro grid spatial samplings
+	
+	\medskip
+	
+	Meso grid spatial samplings
+	
+	\medskip
+	
+	Macro spatial samplings
+	
+	\medskip
+
+	Spatial network generation
+	
+	\medskip
+
+	Real data import
+	
+	\medskip
+
+	Real data perturbations
+	
+	\medskip
+
+	Spatial statistics
+	
+	\medskip
+
+	Hybrid methods
+	
+	\medskip
+
+	Domain models (transportation, land-use)
+		
+	\end{column}
+	
+	
+	
+	\begin{column}{0.2\linewidth}
+		
+		\vspace{-0.3cm}
+		
+		\textbf{OpenMOLE}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{red}\xmark}
+			
+			\medskip
+		
+		{\textcolor{red}\xmark}
+		
+		\medskip
+		
+		{\textcolor{red}\xmark}
+		
+		\medskip
+		
+		{\textcolor{red}\xmark}
+		
+		\medskip
+
+		{\textcolor{blue}\cmark}
+		
+		\medskip
+		
+		{\textcolor{red}\xmark}
+		
+		\medskip
+		
+		{\textcolor{red}\xmark}
+			
+	\end{column}
+	
+	
+	
+	\begin{column}{0.25\linewidth}
+		
+		\vspace{-0.3cm}
+		
+		\textbf{spatialdata}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+			
+			\medskip
+		
+		{\textcolor{blue}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\xmark}
+		
+		\medskip
+		
+		{\textcolor{red}\xmark}
+		
+		\medskip
+
+		{\textcolor{blue}\cmark}
+		
+		\medskip
+		
+		{\textcolor{red}\xmark}
+		
+		\medskip
+		
+		{\textcolor{blue}\cmark}
+	\end{column}
+	
+	
+	
+	\begin{column}{0.2\linewidth}
+		
+		\vspace{-0.3cm}
+		
+		\textbf{planned}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+			
+			\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+		
+		\medskip
+		
+		{\textcolor{green}\cmark}
+	\end{column}
+
+	
+	
+	
+\end{columns}
+
+
+
+}
+
+
+
+\section{Application on the Zombie model}
+
+
+\sframe{Synthetic spaces for ZOMBIE}{
+
+\textit{Try the GUI with synthetic spaces at }
+
+\texttt{https://om.exmodelo.org/spatialsens/}
+
+\medskip
+
+\centering
+
+\includegraphics[width=\textwidth]{figures/GUIZOMBIE_spatialsens.png}
+
+}
+
+
+
+\sframe{Application on the Zombie model}{
+
+\textit{First application: fixed model parameters, sensitivity of time series to spatial configuration}
+
+\medskip
+
+% TODO spatialsens fixed params : work on derivative ! (clearer for the peak ?)
+
+% TODO show two different ways of implementing : either within the zombie model ; or with samplings (below is spatialdata library)
+
+}
+
+
+\sframe{Ideas for the challenge}{
+
+% optimal placement of traps ? cf Paul's fiche but with systematic generators ?
+
+}
+
+
+\sframe{Submit to special session at CCS}{
+
+
+\includegraphics[width=\linewidth]{figures/ccs.png}
+
+\medskip
+
+\textit{Satellite session on methods and epistemology in modeling and simulation, at Conference on Complex Systems, 2nd October 2019}
+
+\smallskip
+
+\textbf{Submit your abstract before June 30th !}
+
+\url{https://iscpif.fr/ccs-satelllite-session-2019-new-methods/}
+
+\smallskip
+
+\textbf{Submission link:}
+
+\url{https://easychair.org/conferences/?conf=simexplo2019}
+
+}
+
 
 
 
