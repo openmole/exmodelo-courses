@@ -10,10 +10,9 @@
 
 \title[Spatial sensitivity]{Spatial sensitivity analysis}
 \subtitle{Course and practical application}
-\author[Short Author]{Author}
-\date{\today}
-\institute{Institut\\
-\bigskip
+%\author[Short Author]{Author}
+\date{June 26, 2019}
+\institute{
 \includegraphics[scale=2]{../beamer_template/figures/logos/openmole.png}}
 
 \begin{document}
@@ -406,7 +405,7 @@ SimpopLocal model calibrated with distributed NSGA2 on grid \cite{schmitt2014hal
 \sframe{The Modifiable Areal Unit Problem}{
 
 \begin{center}
-	\includegraphics[height=0.9\textheight]{figures/maup.png}	
+	\includegraphics[height=0.75\textheight]{figures/maup.png}	
 \end{center}
 
 
@@ -421,15 +420,24 @@ Wong, D. (2009). The modifiable areal unit problem (MAUP). The SAGE handbook of 
 
 \sframe{Multiscalar systems}{
 
+\textit{Processes specific to scales, coupling implies dedicated ontologies} \cite{raimbault2019towards}
+
+\bigskip
+
 \begin{center}
 	\includegraphics[width=0.9\textwidth]{figures/multiscale_morph.pdf}
 \end{center}
+
+
+
 
 }
 
 \sframe{Spatial non-stationarity}{
 
 \textit{Spatial non-stationarity of road network properties} \cite{raimbault2019urban}
+
+\bigskip
 
 \centering
 
@@ -446,7 +454,7 @@ Wong, D. (2009). The modifiable areal unit problem (MAUP). The SAGE handbook of 
 
 \centering
 
-\includegraphics[height=0.9\textheight]{figures/osm_data_accuracy.png}
+\includegraphics[height=0.8\textheight]{figures/osm_data_accuracy.png}
 
 }
 
@@ -459,7 +467,7 @@ Wong, D. (2009). The modifiable areal unit problem (MAUP). The SAGE handbook of 
 
 \centering
 
-\includegraphics[height=0.9\textheight]{figures/multilevelpumain_zipf.png}
+\includegraphics[height=0.8\textheight]{figures/multilevelpumain_zipf.png}
 
 }
 
@@ -633,11 +641,18 @@ Urban form indicators for building layouts:
 
 \justify
 
-$\rightarrow$ other generators have their own primitives (\texttt{ExpMixtureThresholdSpatialSampling}, \texttt{PercolationGridSpatialSampling}) and arguments (\textbf{see the doc})
+$\rightarrow$ other generators have their own primitives\\(\texttt{ExpMixtureThresholdSpatialSampling},\\ \texttt{PercolationGridSpatialSampling}) and arguments (\textbf{see the documentation})
+
+\medskip
 
 $\rightarrow$ explore the script \texttt{SpatialSampling.oms}
 
+\medskip
+
+\url{http://nextcloud.openmole.org/s/HsyqS3bSiS7Tb6B/download}
+
 }
+
 
 
 
@@ -657,6 +672,10 @@ $\rightarrow$ explore the script \texttt{SpatialSampling.oms}
 \end{itemize}
 
 
+\bigskip
+\bigskip
+
+\footnotesize
 
 Raimbault, J. (2018). Calibration of a density-based model of urban morphogenesis. PloS one, 13(9), e0203516.
 
@@ -684,7 +703,9 @@ $\rightarrow$ Potentiality of aggregation mechanisms (such as Simon model) to pr
 
 \bigskip
 
-$\rightarrow$ Link with Reaction-diffusion approaches in Morphogenesis~\cite{turing1952chemical}
+$\rightarrow$ Link with Reaction-diffusion approaches in Morphogenesis
+
+\cite{turing1952chemical}
 
 \bigskip
 
@@ -976,7 +997,7 @@ Adding new links with biological heuristic:
 \medskip
 
 \begin{center}
-\includegraphics[height=0.8\textheight]{figures/simpopnet_Fig1.png}
+\includegraphics[height=0.75\textheight]{figures/simpopnet_Fig1.png}
 \end{center}
 
 
@@ -990,14 +1011,17 @@ Adding new links with biological heuristic:
 
 \medskip
 
+\begin{center}
 \includegraphics[height=0.47\textheight]{figures/macrocoevol_example_virtual_0_t0.png}\hspace{0.2cm}\includegraphics[height=0.47\textheight]{figures/macrocoevol_example_virtual_0_tf.png}
+\end{center}
+
 
 }
 
 
 \sframe{Co-evolution model}{
 
-\includegraphics[height=0.8\textheight]{figures/macrocoevol_en.png}
+\includegraphics[width=\textwidth]{figures/macrocoevol_en.png}
 
 }
 
@@ -1015,6 +1039,10 @@ Adding new links with biological heuristic:
 \begin{itemize}
 	\item spatial network generative models
 	\item other disciplines ? ecology ? geosciences \cite{mogheir2004characterizing} ?
+	\item interaction with data driven disciplines ? (planning, architecture, spatio-temporal datamining)
+	\item genericity of some models ? (reaction-diffusion)
+	\item synthetic data generation methods (synthetic populations)
+	\item synthetic data at the core of applied statistics methodology (not much in spatial statistics ?)
 \end{itemize}
 
 
@@ -1024,15 +1052,15 @@ Adding new links with biological heuristic:
 
 \sframe{Spatial form and function: Morphogenesis}{
 
-\vspace{-0.3cm}
+\vspace{-0.2cm}
 
 \includegraphics[width=\textwidth,height=0.82\textheight]{figures/intro_examples}
 
 \justify
 
-\vspace{-0.5cm}
+\vspace{-0.4cm}
 
-\footnotesize\textit{Sources (in order by column). Ants, Erosion, Game of Life: NetLogo Library ; Arbotron \cite{jun2005formation}; Industrial design \cite{Aage:2017aa}; Swarm chemistry \cite{sayama2007decentralized}}
+\tiny\textit{Sources (in order by column). Ants, Erosion, Game of Life: NetLogo Library ; Arbotron \cite{jun2005formation}; Industrial design \cite{Aage:2017aa}; Swarm chemistry \cite{sayama2007decentralized}}
 
 
 
@@ -1062,8 +1090,15 @@ $\rightarrow$ \textit{How does noise in real data impacts the result ?}
 
 $\rightarrow$ \textit{How does perturbation of real data allows to explore scenario}
 
-An example: simulating urban projects by modifying population of areas with a given spatial correlation structure.
-%Forcity example
+\medskip
+
+\textbf{Examples:}
+
+\begin{itemize}
+   \item simulating urban projects by modifying population of areas with a given spatial correlation structure %Forcity example
+	\item simulating network disruptions or new transportation lines
+\end{itemize}
+
 
 }
 
@@ -1080,7 +1115,7 @@ An example: simulating urban projects by modifying population of areas with a gi
 
 \textit{General workflow to test the spatial sensitivity of simulation models}
 
-\medskip
+\bigskip
 
 \footnotesize
 
@@ -1133,7 +1168,7 @@ d_r\left(\mu_{\vec{\alpha}_1},\mu_{\vec{\alpha}_2}\right) = 2 \cdot \frac{d(\mu_
 
 \centering
 
-\includegraphics[height=0.9\textheight]{figures/spatialsens_schellingreg.png}
+\includegraphics[height=0.8\textheight]{figures/spatialsens_schellingreg.png}
 
 }
 
@@ -1149,10 +1184,9 @@ d_r\left(\mu_{\vec{\alpha}_1},\mu_{\vec{\alpha}_2}\right) = 2 \cdot \frac{d(\mu_
 	\item the resource regrows at a certain rate only
 \end{itemize}
 
-}
 
+\bigskip
 
-\sframe{Sensitivity of sugarscape}{
 
 \textit{Relative distances between phase diagrams}
 
@@ -1161,6 +1195,7 @@ d_r\left(\mu_{\vec{\alpha}_1},\mu_{\vec{\alpha}_2}\right) = 2 \cdot \frac{d(\mu_
 \includegraphics[width=0.49\textwidth]{figures/sugarscape_Fig4.png}\includegraphics[width=0.49\textwidth]{figures/sugarscape_Fig5.png}
 
 % TODO idea : compare with kind of saltelli approach ? and the dynamical system stuff ? -> would make an other paper
+
 
 }
 
@@ -1173,29 +1208,18 @@ d_r\left(\mu_{\vec{\alpha}_1},\mu_{\vec{\alpha}_2}\right) = 2 \cdot \frac{d(\mu_
 
 \textit{In the spatial approach, spatial model indicators are also important: what kind of spatial structure does the model produce ?}
 
-\medskip 
+\bigskip 
  
  \begin{itemize}
- 	\item previous form indicators at different scales
- 	\item spatial statistics
+ 	\item previous form indicators at different scales, applied on any spatialized variable or event: quantify level of aggregation, hierarchy, clustering
+ 	\item spatial statistics indicators and methods
+ 	\item more complicated approaches: fractals and multifractals, spatial datamining
  \end{itemize}
 
 }
 
 
-\sframe{Spatial form as indicators}{
 
-
-*spatial correlations ?*
-
-}
-
-
-\sframe{Spatial statistics}{
-
-(examples)
-
-}
 
 
 \sframe{Moran index}{
@@ -1207,7 +1231,7 @@ d_r\left(\mu_{\vec{\alpha}_1},\mu_{\vec{\alpha}_2}\right) = 2 \cdot \frac{d(\mu_
 Given spatial weights $w_{ij}$
 
 \[
-I = \frac{N}{\sum_{i,j} w_{ij}} \cdot \frac{\sum_{i,j}w_{ij} \cdot (X_i - \bar{X}) (X_j = \bar{X})}{\sum_i (X_i - \bar{X})^2}
+I = \frac{N}{\sum_{i,j} w_{ij}} \cdot \frac{\sum_{i,j}w_{ij} \cdot (X_i - \bar{X}) (X_j - \bar{X})}{\sum_i (X_i - \bar{X})^2}
 \]
 
 }
@@ -1217,13 +1241,27 @@ I = \frac{N}{\sum_{i,j} w_{ij}} \cdot \frac{\sum_{i,j}w_{ij} \cdot (X_i - \bar{X
 
 % example from EnergyPrice ?
 
+\textit{Extracting typical spatial scales of a system using Moran Index} \cite{raimbault2017cost}
+
+\medskip
+
 \includegraphics[width=\textwidth]{figures/moran_typicalscales.png}
 
 }
 
 \sframe{Ripley K function}{
 
-\textit{Quantifying level of clustering regarding a null model}
+\justify
+
+\textit{Quantifying the level of clustering of spatial points or points on a network regarding a Poisson process null model} \cite{vandenbulcke2017location}
+
+
+\medskip
+
+\begin{center}
+\includegraphics[width=0.72\textwidth]{figures/cybergeo_cyclistaccidents_img-2.png}
+\end{center}
+
 
 }
 
@@ -1248,7 +1286,7 @@ Raimbault, J., \& Bergeaud, A. (2017). The cost of transportation: Spatial analy
 
 \section{Synthesis}
 
-\sframe{}{
+\sframe{Synthesis of available tools}{
 
 
 
@@ -1462,20 +1500,124 @@ Raimbault, J., \& Bergeaud, A. (2017). The cost of transportation: Spatial analy
 
 \sframe{Application on the Zombie model}{
 
+
+\justify
+
 \textit{First application: fixed model parameters, sensitivity of time series to spatial configuration}
+
+\bigskip
+\bigskip
+
+% spatialsens fixed params : work on derivative ! (clearer for the peak ?)
+
+% show two different ways of implementing : either within the zombie model ; or with samplings (below is spatialdata library)
+
+$\rightarrow$ explore the script \texttt{spatialsens.oms}
+
+}
+
+\sframe{Sensitivity of zombified dynamics}{
+
+\centering
+
+\includegraphics[width=\textwidth]{figures/spatialsens_generators_zombified.png}
+
+}
+
+
+\sframe{Application on the Zombie model}{
+
+\justify
+
+\textit{Second application: variance-based comparison of phase diagrams for the cooperation submodel, between varying spatial configuration}
+
+\bigskip
+\bigskip
+
+% spatialsens fixed params : work on derivative ! (clearer for the peak ?)
+
+% show two different ways of implementing : either within the zombie model ; or with samplings (below is spatialdata library)
+
+$\rightarrow$ explore the script \texttt{phasediag.oms}
+
+\bigskip
+
+\textbf{No results} for this experiment (problem of memory more than computation time) - method still need to be reformulated/implemented in a ``Saltelli-like'' manner
+
+
+}
+
+
+\sframe{Application on the Zombie model}{
+
+
+\textit{Third application: calibration of the default parameters model, for each type of generator, to maximize peak size (time-localized dynamics) and minimize number of zombified}
+
+\bigskip
+\bigskip
+
+
+$\rightarrow$ explore the script \texttt{calibrate.oms}
+
+
+}
+
+\sframe{Calibration results}{
+
+\footnotesize
+
+\textit{Complementary restricted Pareto fronts between the different spatial generators}
 
 \medskip
 
-% TODO spatialsens fixed params : work on derivative ! (clearer for the peak ?)
+$\rightarrow$ urban planning policies yield different zombie-resilient compromises, and different ``planning paradigms'' are complementary
 
-% TODO show two different ways of implementing : either within the zombie model ; or with samplings (below is spatialdata library)
+\bigskip
+
+\includegraphics[width=0.48\textwidth]{figures/paretos_allsamples.png}
+\includegraphics[width=0.48\textwidth]{figures/paretos_20samples.png}
+
+
 
 }
+
 
 
 \sframe{Ideas for the challenge}{
 
 % optimal placement of traps ? cf Paul's fiche but with systematic generators ?
+
+\begin{itemize}
+	\item test the robustness of your qualitative findings to the spatial configuration
+	\item use spatial metrics to answer specific questions
+	\item change the initial spatial distribution of agents (\textbf{\textit{need library/model tuning}})
+	\item study the influence of spatial distribution of rescues or traps (\textbf{\textit{need library/model tuning if structured spatial configuration}})
+	\item compute complicated spatial statistics on agents trajectories e.g. (\textbf{\textit{need library/model tuning}})
+\end{itemize}
+
+
+}
+
+
+\sframe{Take home message}{
+
+\justify
+
+$\rightarrow$ \textbf{Space matters: } relevance of spatially-explicit models and spatial sensitivity analysis.
+
+\bigskip
+
+$\rightarrow$ \textbf{Synthetic data: } first experimental samplings included in OpenMOLE, soon more to come.
+
+\bigskip
+
+$\rightarrow$ \textbf{Disciplinary context: } strong contingency on included models and forms, please provide feedbacks, suggestions, needs, ideas from your viewpoint.
+
+\medskip
+
+\textit{Open issues at } \url{https://github.com/openmole/spatialdata/issues}
+
+ 
 
 }
 
