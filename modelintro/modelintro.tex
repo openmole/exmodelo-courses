@@ -43,11 +43,11 @@
 
 
 %
-%Pourquoi le logo OpenMOLE ??
+%X Pourquoi le logo OpenMOLE ??
 %
-%Iceland (pas Island)
-%Ludicrous
-%observational data
+%X Iceland (pas Island)
+%XLudicrous
+%X observational data
 %
 %Préciser que c’est un ABM et qu’est ce qu’un ABM.
 %
@@ -69,11 +69,11 @@
 %
 %blouses + lunettes ?
 %
-%logo du Mole institute
+%X logo du Mole institute
 %
-%point de vue du scientifique qui vient, content que le modele soit etudie
+%X point de vue du scientifique qui vient, content que le modele soit etudie
 %
-%model as black box, pas besoin de connaitre exacetement tous les processus et parameteres
+%X model as black box, pas besoin de connaitre exacetement tous les processus et parameteres
 %
 
 
@@ -81,6 +81,7 @@
 
  % contextualize Center for Zombie Research
  % knowledge forgotten about how to use simulation models ? -> you are the last hope of the world
+ %  point de vue du scientifique qui vient, content que le modele soit etudie
 
 \centering
 
@@ -96,10 +97,10 @@
 \sframe{History of Zombie epidemiology}{
 
 \begin{itemize}
-	\item 2007: first outbreak in Island, relatively contained through ad-hoc measures
+	\item 2007: first outbreak in Iceland, relatively contained through ad-hoc measures
 	\item 2010: it becomes pandemic
 	\item 2010-2015: no clear records of events
-	\item 2015-2018: reorganization of institutions, the MOLE (Medical Overview of Ludicrous Experiments) center in Chongqing gathers observational from many local invasions across the world
+	\item 2015-2018: reorganization of institutions, the MOLE (Medical Overview of Ludicrous Experiments) center in Chongqing gathers observational data from many local invasions across the world
 	\item 2019: they released the first version of the model ZOMBIE (Zone of Optimal Management for Bacillus Infecting Everyone) and successfully applied
 \end{itemize}
 
@@ -151,7 +152,7 @@
 
 \justify
 
-\textbf{Objective of the model: } optimal policies and behavioral prevention to minimize the impact of recurring invasions
+\textbf{Objective of the model: } better understand the Zombie invasion process; possible applications to optimal policies and behavioral prevention to minimize the impact of recurring invasions
 
 \medskip
 
@@ -159,7 +160,7 @@
 
 \medskip
 
-$\rightarrow$ \textit{we need YOU to understand this model to save the world}
+$\rightarrow$ \textit{we need \textbf{YOU} to understand this model to save the world}
 
 
 }
@@ -199,6 +200,19 @@ Multiple approaches to pedestrian simulations:
 }
 
 
+\sframe{Pedestrian potential field model}{
+
+\begin{center}
+	\includegraphics[height=0.8\textheight]{pedestrian}
+\end{center}
+
+\medskip
+
+
+
+}
+
+
 \sframe{Agents state machines}{
 
 \includegraphics[width=0.51\textwidth]{figures/humanStateMachine.png}\hspace{0.2cm}\includegraphics[width=0.46\textwidth]{figures/zombieStateMachine.png}
@@ -225,10 +239,32 @@ With the additional parameter \texttt{humanFollowProbability} (probability for a
 }
 
 
+\sframe{Changing the world}{
+
+\begin{center}
+	\includegraphics[height=0.6\textheight]{figures/worlds}	
+\end{center}
+
+\medskip
+
+\textit{Alternative worlds \ldots and many more automatically generated (spatial sensitivity module on Wednesday)}
+
+
+}
+
+
 \sframe{A flexible and more general model}{
 
 % one world on multi-modeling / deactivated parameters
 % hidden parameters ?
+
+% model as black box, pas besoin de connaitre exacetement tous les processus et parameteres
+
+\begin{itemize}
+	\item The general model, of which the three-parameter model is a particular case has more processes (deactivated or fixed)
+	\item No need to know them for now, with the aim to understand the submodel on which we have the less knowledge
+	\item Multi-modeling and model embedding (model as black box)
+\end{itemize}
 
 }
 
@@ -239,7 +275,7 @@ With the additional parameter \texttt{humanFollowProbability} (probability for a
  \begin{itemize}
  	\item Model implemented in scala (highly performant language mixing the best from functional programming and object programming)
  	\item Simple GUI for interactive exploration	
- 	\item 
+ 	\item Integrated into OpenMOLE as a \texttt{jar} plugin in the GUI
  \end{itemize}
 
 
@@ -255,6 +291,10 @@ With the additional parameter \texttt{humanFollowProbability} (probability for a
 
 % say that plugin - as a jar
 
+\textit{Scala syntax to run an execution of the model}
+
+\bigskip
+\bigskip
 
 \centering
 

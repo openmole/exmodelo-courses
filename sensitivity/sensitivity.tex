@@ -225,15 +225,25 @@ sampling = \\
 
 \begin{itemize}
 	\item Given the described zombie model, what first experiment beyond stochasticity would be relevant ?
-    \item Explore and test the \texttt{directsampling.oms} available at
-    \url{} %TODO tp download url - in chat ?
-    \item Explore results (using e.g. the OpenMOLE GUI plots)
+    \item Explore and test the \texttt{directsampling.oms} script available in the downloaded archive (see chat for link)
+    %\url{} % tp download url - in chat ?
+    %\item Explore results (using e.g. the OpenMOLE GUI plots)
 \end{itemize}
 
 %\textit{Resources:}
 % - one script running directsampling
 % - example of grid explo results
 % - example of Saltelli
+
+}
+
+\sframe{Example of direct sampling results}{
+
+\textit{Regular grid sampling for the three parameters of the basic ZOMBIE model, with 100 replications}
+
+\medskip
+
+\includegraphics[width=0.48\textwidth]{figures/peakSizeAverage_p3Fixed04_humanFollowProbability_colorhumanInformProbability_facethumanInformedRatio.png}\includegraphics[width=0.48\textwidth]{figures/spatialMoranZombifiedAverage_p3Fixed04_humanFollowProbability_colorhumanInformProbability_facethumanInformedRatio.png}
 
 }
 
@@ -391,11 +401,9 @@ $\rightarrow$ \textbf{Practice: } test these samplings in \texttt{directsampling
 
 }
 
-\sframe{Result examples for the Zombie model}{
-
-% TODO plots direct sampling
-
-}
+%\sframe{Result examples for the Zombie model}{
+%%  plots direct sampling -> above
+%}
 
 
 \sframe{Summary}{
