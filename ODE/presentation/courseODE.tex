@@ -364,7 +364,7 @@ F & : & \mathbb{R}^4 & \to     & \mathbb{R}^4 \\
 \end{array}$$
 
 \normalsize
-Cauchy-Lipschitz theorem : Existence and uniqueness to a solution of the Cauchy problem.
+Cauchy-Lipschitz theorem: Existence and uniqueness to a solution of the Cauchy problem.
 
 }
 
@@ -380,7 +380,7 @@ $$ \dv{N}{t} = \dv{H_{walk}}{t} + \dv{H_{run}}{t} + \dv{Z_{walk}}{t} + \dv{Z_{ru
 So $N(t)$ is constant:
 $$ N(t) = N(0), \text{ for all } t.$$
 
-We find back that the population size (human + zombies) is constant : natural !
+We find back that the population size (human + zombies) is constant: natural !
 
 }
 
@@ -392,13 +392,13 @@ Let's note $ H := H_{walk} + H_{run}$
 
 Summing the first equations, we have:
 
-$$ \dv{H}{t} = \dv{H_{walk}}{t} + \dv{H_{run}}{t}  = - inf (H_{walk}(t) +H_{run}(t)) = - inf  H(t)$$
+$$ \dv{H}{t} = \dv{H_{walk}}{t} + \dv{H_{run}}{t}  = - inf * (H_{walk}(t) +H_{run}(t)) = - inf * H(t)$$
 
 First-order linear ordinary differential equation with constant coefficient: explicit solution !
 %Equation différentielle linéaire d'ordre 1 à coefficient constant pour $H$: on sait résoudre !
 
 $$ H(t) = H(0) * e^{-inf *t} $$
-
+ 
 Likewise, $$ Z(t) := Z_{walk} + Z_{run} = N - H(t) $$
 
 }
@@ -407,7 +407,7 @@ Likewise, $$ Z(t) := Z_{walk} + Z_{run} = N - H(t) $$
 \sframe{Equilibrium points}{
 
 
-Definition: The point $x \in \mathbb{R}^4$ is an equilibrium point for the differential equation $X' = F(X)$ if $F(X) = 0$.
+\textbf{Definition:} The point $x \in \mathbb{R}^4$ is an \textit{equilibrium point} for the differential equation $X' = F(X)$ if $F(X) = 0$.
 
 \bigskip
 \bigskip
@@ -419,9 +419,17 @@ Here, there is a unique equilibrium point: $(0,0,0,N(0))$: all the population is
 
 \sframe{Link with Parcimony}{
 
-Theses 2 facts : $N(t)$ constant and solutions for $H$ and $Z$ are still valid for the system with additional mechanism.
+Theses 2 facts : 
 
-Not able to change the shape of the solutions of the equation of $H$ and $Z$ with such system modifications.
+\begin{itemize}
+\item $N(t)$ constant 
+\item solutions for $H$  and  $Z$ 
+
+... are still valid for the system with additional mechanism.
+
+\bigskip
+$\rightarrow$ Not able to change the shape of the solutions of the equation of $H$ and $Z$ with such system modifications.
+\end{itemize}
 
 }
 
