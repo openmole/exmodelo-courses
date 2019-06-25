@@ -52,4 +52,3 @@ def profile(param: Val[Double]) = {
 }
 
 EmptyTask() -- (profile(humanFollowProbability), profile(humanInformedRatio), profile(humanInformProbability))
-

@@ -15,7 +15,8 @@ def distance(data: Vector[Double])(vs: Vector[Array[Int]]) = {
   absoluteDistance(data, simulated)
 }
 
-val model =
+def profile(param: Val[Double]) = {
+  val model =
   ScalaTask("""
     import zombies._
     
@@ -38,7 +39,7 @@ val model =
     plugins += pluginsOf[zombies.agent.Agent]    
   )
   
-ProfileEvolution(
+  ProfileEvolution(
     evaluation = XXX,
     objective = XXX,
     x = XXX,
@@ -47,3 +48,7 @@ ProfileEvolution(
     termination = XXX,
     stochastic = Stochastic(seed = seed)
   ) XXX
+}
+
+// Workflow
+XXX
