@@ -98,6 +98,8 @@
 \setbeamertemplate{itemize items}[triangle]
 \setbeamertemplate{enumerate items}[default]
 \setbeamercolor{section in toc}{fg=primaryGreenOM}
+\setbeamercolor{caption name}{fg=primaryGreenOM}
+
 
 % Block
 \setbeamercolor{block title}{fg=primaryDarkOM, bg=primaryGreenOM}
