@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: LavalleeExModelov2.aux
+The style file: apalike.bst
+Illegal, another \bibstyle command---line 212 of file LavalleeExModelov2.aux
+ : \bibstyle
+ :          {apalike}
+I'm skipping whatever remains of this command
+Database file #1: biblio_rapport.bib
+Repeated entry---line 1211 of file biblio_rapport.bib
+ : @article{fournier2004microscopic
+ :                                 ,
+I'm skipping whatever remains of this entry
+Warning--empty journal in FMartin17
+You've used 16 entries,
+            1935 wiz_defined-function locations,
+            583 strings with 7406 characters,
+and the built_in function-call counts, 6640 in all, are:
+= -- 643
+> -- 299
+< -- 7
++ -- 113
+- -- 102
+* -- 593
+:= -- 1169
+add.period$ -- 47
+call.type$ -- 16
+change.case$ -- 129
+chr.to.int$ -- 15
+cite$ -- 17
+duplicate$ -- 227
+empty$ -- 440
+format.name$ -- 122
+if$ -- 1264
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 15
+newline$ -- 82
+num.names$ -- 48
+pop$ -- 105
+preamble$ -- 1
+purify$ -- 130
+quote$ -- 0
+skip$ -- 178
+stack$ -- 0
+substring$ -- 497
+swap$ -- 24
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 96
+warning$ -- 1
+while$ -- 53
+width$ -- 0
+write$ -- 204
+(There were 2 error messages)
