@@ -335,38 +335,38 @@ First-order \textbf{nonlinear} (autonomous) ordinary differential equation... a 
 
 
 
-\sframe{Cauchy Problem}{
-
-Let's note $X(t) :=  (H_{walk}(t),H_{run}(t),Z_{walk}(t),Z_{run}(t)) $
-
-We have the following Cauchy problem:
-
-$$ 
-\left\{
-\begin{array}{llll}
-X'(t) & = &  F(X(t)) & \\ 
-X(0) & = & (x_0,y_0,z_0,w_0) & \text{ initial condition}
-\end{array}
-\right.
-$$
-
-where  
-
-$$ (x_0,y_0,z_0,w_0)  \in \mathbb{R}_+^* $$
-
-and
-
-\fontsize{7pt}{8pt}\selectfont
-$$\begin{array}{lllll}
-F & : & \mathbb{R}^4 & \to     & \mathbb{R}^4 \\
-  &   &   (x,y,z,w)       &  \mapsto &  F(x,y,z,w) := ((panic0 * \frac{z+w}{x+y+z+w} + inf) * x + exhaustH * y,  \\
-  & & & &  \hspace{2cm} \ldots,\ldots,\ldots)
-\end{array}$$
-
-\normalsize
-Cauchy-Lipschitz theorem: Existence and uniqueness to a solution of the Cauchy problem.
-
-}
+%\sframe{Cauchy Problem}{
+%
+%Let's note $X(t) :=  (H_{walk}(t),H_{run}(t),Z_{walk}(t),Z_{run}(t)) $
+%
+%We have the following Cauchy problem:
+%
+%$$ 
+%\left\{
+%\begin{array}{llll}
+%X'(t) & = &  F(X(t)) & \\ 
+%X(0) & = & (x_0,y_0,z_0,w_0) & \text{ initial condition}
+%\end{array}
+%\right.
+%$$
+%
+%where  
+%
+%$$ (x_0,y_0,z_0,w_0)  \in \mathbb{R}_+^* $$
+%
+%and
+%
+%\fontsize{7pt}{8pt}\selectfont
+%$$\begin{array}{lllll}
+%F & : & \mathbb{R}^4 & \to     & \mathbb{R}^4 \\
+%  &   &   (x,y,z,w)       &  \mapsto &  F(x,y,z,w) := ((panic0 * \frac{z+w}{x+y+z+w} + inf) * x + exhaustH * y,  \\
+%  & & & &  \hspace{2cm} \ldots,\ldots,\ldots)
+%\end{array}$$
+%
+%\normalsize
+%Cauchy-Lipschitz theorem: Existence and uniqueness to a solution of the Cauchy problem.
+%
+%}
 
 
 
@@ -412,7 +412,7 @@ Likewise, $$ Z(t) := Z_{walk} + Z_{run} = N - H(t) $$
 \bigskip
 \bigskip
 
-Here, there is a unique equilibrium point: $(0,0,0,N(0))$: all the population is composed of walking zombies.
+For example, points of the form $(0,0,0,N)$ are equilibrium points. They correspond to a population composed of walking zombies.
 
 }
 
