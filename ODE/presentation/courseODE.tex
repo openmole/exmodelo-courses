@@ -412,26 +412,89 @@ Likewise, $$ Z(t) := Z_{walk} + Z_{run} = N - H(t) $$
 \bigskip
 \bigskip
 
-For example, points of the form $(0,0,0,N)$ are equilibrium points. They correspond to a population composed of walking zombies.
+For example, points of the form $(0,0,N,0)$ are equilibrium points. They correspond to a population composed of walking zombies.
 
 }
 
 
-\sframe{Link with Parcimony}{
 
-Theses 2 facts : 
 
-\begin{itemize}
-\item $N(t)$ constant 
-\item solutions for $H$  and  $Z$ 
+%\sframe{Link with Parcimony}{
 
-... are still valid for the system with additional mechanism.
 
-\bigskip
-$\rightarrow$ Not able to change the shape of the solutions of the equation of $H$ and $Z$ with such system modifications.
-\end{itemize}
+%
+%Theses 2 facts : 
+%
+%\begin{itemize}
+%\item $N(t)$ constant 
+%\item solutions for $H$  and  $Z$ 
+%
+%... are still valid for the system with additional mechanism.
+%
+%\bigskip
+%$\rightarrow$ Not able to change the shape of the solutions of the equation of $H$ and $Z$ with such system modifications.
+%\end{itemize}
+%}
+
+
+\sframe{New  mechanism}{
+
+\fontsize{9pt}{10pt}\selectfont	
+	\begin{eqnarray*}
+		\left\{
+		\begin{array}{lcl}
+			\dv{H_{walk}}{t}  & = &  -(panic + inf + out) * H_{walk} + exhaustH * H_{run} \\
+			\tmspace{1mu}&& \\
+			\dv{H_{run}}{t} & = & panic * H_{walk} - (exhaustH + inf + out) * H_{run} \\
+			\tmspace{1mu}&& \\
+			\dv{Z_{walk}}{t} & = & inf * (H_{walk} + H_{run}) - (hunt + die) * Z_{walk} + exhaustZ * Z_{run} \\
+			\tmspace{1mu}&& \\
+			\dv{Z_{run}}{t} & = & hunt * Z_{walk} - (exhaustZ + die) * Z_{run}
+		\end{array}
+		\right.
+	\end{eqnarray*}
+}
+
+
+\sframe{New  mechanism}{
+	\begin{eqnarray*}
+		\left\{
+		\begin{array}{lcl}
+			N & = & H_{walk} + H_{run} + Z_{walk} + Z_{run} \\
+			\tmspace{1mu}&& \\
+			panic  & = &  panic0 * (Z_{walk} + Z_{run}) / N \\
+			\tmspace{1mu}&& \\
+			hunt & = & hunt0 * (H_{walk} + H_{run}) / N \\
+			\tmspace{1mu}&& \\
+			inf & = & inf0 * (1 - fightback) \\
+			\tmspace{1mu}&& \\			
+			out & = & out0 * (H_{walk} + H_{run}) / N \\
+			\tmspace{1mu}&& \\
+			die & = & die0 * (H_{walk} + H_{run}) / N  \\
+		\end{array}
+		\right.
+	\end{eqnarray*}
+
 
 }
+
+
+\sframe{New  mechanism}{
+
+
+However, the population size is no more constant, due to $out0$ and $die0$.
+%: $\dv{N}{t} \leq 0 $, for all $t$, due to $out0$ and $die0$.
+
+\bigskip 
+
+Then, 
+$H := H_{walk} + H_{run}$ satisfies :
+\[  \dv{H}{t} = - (inf + out0. \frac{H}{N}).H  \]
+
+for which a solution is not as simple as for the previous model.
+
+}
+
 
 
 %% Stop numbering
