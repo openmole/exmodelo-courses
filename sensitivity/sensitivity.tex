@@ -287,6 +287,10 @@ Different methods for improving sampling in numerical experiments given limited 
 L2-discrepancy given for normalized data points $\mathbf{X}=(x_{ij})\in \left[0,1\right]^d$ by
 
 
+\[
+\left\lVert \mathbf{t} = (t_j) \in \left[0,1\right]^d \mapsto \frac{1}{n}\sum_i \mathbbm{1}_{\prod_j x_{ij}<t_j} - \prod_j t_j \right\rVert_2
+\]
+
 
 \bigskip
 \bigskip
@@ -296,11 +300,6 @@ L2-discrepancy given for normalized data points $\mathbf{X}=(x_{ij})\in \left[0,
 \textit{Explanation: $\prod_j t_j$ is the volume of the hypercube between $\mathbf{t}$ and the origin; the sum of indicator functions counts the points within that hypercube; the difference between expected volume and point number is integrated over the whole hypercube.}
 
 
-\footnotesize
-
-\[
-\left\lVert \mathbf{t} = (t_j) \in \left[0,1\right]^d \mapsto \frac{1}{n}\sum_i \mathbbm{1}_{\prod_j x_{ij}<t_j} - \prod_j t_j \right\rVert_2
-\]
 
 }
 
