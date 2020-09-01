@@ -11,7 +11,7 @@
 \title[Spatial sensitivity]{Spatial sensitivity analysis}
 \subtitle{Course and practical application}
 %\author[Short Author]{Author}
-\date{June 26, 2019}
+\date{September 2nd, 2020}
 \institute{
 \includegraphics[scale=2]{../beamer_template/figures/logos/openmole.png}}
 
@@ -128,9 +128,9 @@
 
 \begin{itemize}
 	\item Ontological complexity \cite{pumain2003approche}
-	\item Dynamical complexity: non-ergodicity and path-dependancy \cite{pumain2012urban}
-	\item Complexity and co-evolution
-	\item Complexity and emergence
+	\item Dynamical complexity: non-ergodicity and path-dependency \cite{pumain2012urban}
+	\item Complexity and co-evolution \cite{raimbault2019modeling}
+	\item Complexity and emergence \cite{bedau2002downward}
 \end{itemize}
 
 
@@ -192,7 +192,7 @@ $\rightarrow$ simulation allows synthesis
 
 }
 
-\sframe{Evolutive Urban Theory}{
+\sframe{Evolutionary Urban Theory}{
 \begin{columns}
 \column{0.7\textwidth}
 \centering
@@ -357,7 +357,7 @@ SimpopLocal model calibrated with distributed NSGA2 on grid \cite{schmitt2014hal
 
 \sframe{Other example of multi-modeling}{
 
-\textit{Benchmark of growth models for systems of cities} \cite{raimbault2018systematic}
+\textit{Benchmark of growth models for systems of cities} \cite{Raimbault_2020} %\cite{raimbault2018systematic}
 
 \centering
 
@@ -529,7 +529,7 @@ $\rightarrow$ at different scales: microscopic (buildings), mesoscopic (populati
 
 \medskip
 
-Raimbault, J. and Perret, J., 2019. Generating urban morphologies at large scales. \textit{Forthcoming in proceedings of Artificial Life 2019.} arXiv:1903.06807
+Raimbault, J., \& Perret, J. (2019). Generating urban morphologies at large scales. In Artificial Life Conference Proceedings (pp. 179-186). Cambridge: MIT Press.
 
 \medskip
 
@@ -634,14 +634,14 @@ Urban form indicators for building layouts:
 % spatialsmapling syntax 
 
 \begin{center}
-\includegraphics[width=0.8\textwidth]{figures/blocksampling.png}
+\includegraphics[width=\linewidth]{figures/spatialsampling.png}
 \end{center}
 
 \medskip
 
 \justify
 
-$\rightarrow$ other generators have their own primitives\\(\texttt{ExpMixtureThresholdSpatialSampling},\\ \texttt{PercolationGridSpatialSampling}) and arguments (\textbf{see the documentation})
+$\rightarrow$ other generators have their own primitives\\(\texttt{BlocksGridSpatialSampling},\\ \texttt{PercolationGridSpatialSampling}) and arguments (\textbf{see the documentation})
 
 \medskip
 
@@ -649,7 +649,23 @@ $\rightarrow$ explore the script \texttt{SpatialSampling.oms}
 
 \medskip
 
-\url{http://nextcloud.openmole.org/s/HsyqS3bSiS7Tb6B/download}
+%\url{http://nextcloud.openmole.org/s/HsyqS3bSiS7Tb6B/download}
+
+}
+
+\sframe{Practice: exploration of generators}{
+
+Script \texttt{SpatialSampling.oms}
+
+\medskip
+
+\begin{enumerate}
+	\item Use the \texttt{MatrixHook} and an \texttt{EmptyTask}	to visualize different types of grid
+	\item Explore the generators applied to the ZOMBIE model at \url{https://om.exmodelo.org/spatialsens/}
+	\item Plug a hook to retrieve all flat configurations (using the commented ScalaTask)
+	\item Next step: Modify the script to plug random worlds into the model (later)
+\end{enumerate}
+
 
 }
 
@@ -797,7 +813,7 @@ where $d_M$ is a normalisation constant
 
 
 
-\sframe{Path-dependence and frozen accidents}{
+\sframe{Path-dependency and frozen accidents}{
 
 \centering
 
@@ -847,6 +863,26 @@ where $d_M$ is a normalisation constant
 \includegraphics[width=0.8\textwidth]{figures/spatialsens_pse.png}
 
 \footnotesize\textit{Potentialities of targeted model explorations: here feasible space using Pattern Space Exploration algorithm \cite{10.1371/journal.pone.0138212}.}
+
+}
+
+\sframe{Other urban morphogenesis models}{
+
+Benchmarking exponential mixtures, correlated percolation and gravity-based models \cite{raimbault2020comparison}
+
+\medskip
+
+\centering
+
+\includegraphics[height=0.8\textheight]{figures/mesobenchmark_Fig3.png}
+
+
+}
+
+\sframe{Feasible morphological spaces}{
+
+\includegraphics[height=0.9\textheight]{figures/mesobenchmark_Fig4.png}
+
 
 }
 
@@ -1023,6 +1059,32 @@ Adding new links with biological heuristic:
 
 \includegraphics[width=\textwidth]{figures/macrocoevol_en.png}
 
+\medskip
+
+Raimbault, J. (2018). Modeling the co-evolution of cities and networks. Handbook of cities and networks, Rozenblat C., Niel Z., eds. (in press) arXiv:1804.09430.
+
+
+}
+
+
+\sframe{Urban evolution model}{
+
+
+\begin{columns}
+	\begin{column}{0.7\linewidth}
+		\includegraphics[width=\linewidth]{figures/innovation_4.png}
+	\end{column}
+	\begin{column}{0.3\linewidth}
+		\includegraphics[width=\linewidth]{figures/innovation_leg.png}
+	\end{column}
+\end{columns}
+
+\medskip
+
+Raimbault, J. (2020). A model of urban evolution based on innovation diffusion. Artificial Life Conference Proceedings 2020 NO. 32, 500-508.
+
+
+
 }
 
 
@@ -1119,7 +1181,7 @@ $\rightarrow$ \textit{How does perturbation of real data allows to explore scena
 
 \footnotesize
 
-Raimbault, J., Cottineau, C., Texier, M. L., Néchet, F. L., \& Reuillon, R. (2018). Space Matters: extending sensitivity analysis to initial spatial conditions in geosimulation models. arXiv preprint arXiv:1812.06008.
+Raimbault, J., Cottineau, C., Le Texier, M., Le Nechet, F., \& Reuillon, R. (2019). Space Matters: Extending Sensitivity Analysis to Initial Spatial Conditions in Geosimulation Models. Journal of Artificial Societies and Social Simulation, 22(4).
 
 \bigskip
 
@@ -1194,7 +1256,7 @@ d_r\left(\mu_{\vec{\alpha}_1},\mu_{\vec{\alpha}_2}\right) = 2 \cdot \frac{d(\mu_
 
 \includegraphics[width=0.49\textwidth]{figures/sugarscape_Fig4.png}\includegraphics[width=0.49\textwidth]{figures/sugarscape_Fig5.png}
 
-% TODO idea : compare with kind of saltelli approach ? and the dynamical system stuff ? -> would make an other paper
+%  idea : compare with kind of saltelli approach ? and the dynamical system stuff ? -> would make an other paper
 
 
 }
@@ -1241,7 +1303,7 @@ I = \frac{N}{\sum_{i,j} w_{ij}} \cdot \frac{\sum_{i,j}w_{ij} \cdot (X_i - \bar{X
 
 % example from EnergyPrice ?
 
-\textit{Extracting typical spatial scales of a system using Moran Index} \cite{raimbault2017cost}
+\textit{Extracting typical spatial scales of a system using Moran Index} \cite{bergeaud2020empirical}
 
 \medskip
 
@@ -1278,7 +1340,9 @@ I = \frac{N}{\sum_{i,j} w_{ij}} \cdot \frac{\sum_{i,j}w_{ij} \cdot (X_i - \bar{X
 
 \footnotesize
 
-Raimbault, J., \& Bergeaud, A. (2017). The cost of transportation: Spatial analysis of us fuel prices. arXiv preprint arXiv:1706.07467.
+\nocite{bergeaud2020empirical}
+
+Bergeaud, A., \& Raimbault, J. (2020). An empirical analysis of the spatial variability of fuel prices in the United States. Transportation Research Part A: Policy and Practice, 132, 131-143.
 
 
 }
@@ -1526,16 +1590,16 @@ $\rightarrow$ explore the script \texttt{spatialsens.oms}
 
 
 \sframe{Application on the Zombie model}{
-
+%
 \justify
-
+%
 \textit{Second application: variance-based comparison of phase diagrams for the cooperation submodel, between varying spatial configuration}
-
+%
 \bigskip
 \bigskip
-
-% spatialsens fixed params : work on derivative ! (clearer for the peak ?)
-
+%
+%% spatialsens fixed params : work on derivative ! (clearer for the peak ?)
+%
 % show two different ways of implementing : either within the zombie model ; or with samplings (below is spatialdata library)
 
 $\rightarrow$ explore the script \texttt{phasediag.oms}
@@ -1622,29 +1686,29 @@ $\rightarrow$ \textbf{Disciplinary context: } strong contingency on included mod
 }
 
 
-\sframe{Submit to special session at CCS}{
-
-
-\includegraphics[width=\linewidth]{figures/ccs.png}
-
-\medskip
-
-\textit{Satellite session on methods and epistemology in modeling and simulation, at Conference on Complex Systems, 2nd October 2019}
-
-\smallskip
-
-\textbf{Submit your abstract before June 30th !}
-
-\url{https://iscpif.fr/ccs-satelllite-session-2019-new-methods/}
-
-\smallskip
-
-\textbf{Submission link:}
-
-\url{https://easychair.org/conferences/?conf=simexplo2019}
-
-}
-
+%\sframe{Submit to special session at CCS}{
+%
+%
+%\includegraphics[width=\linewidth]{figures/ccs.png}
+%
+%\medskip
+%
+%\textit{Satellite session on methods and epistemology in modeling and simulation, at Conference on Complex Systems, 2nd October 2019}
+%
+%\smallskip
+%
+%\textbf{Submit your abstract before June 30th !}
+%
+%\url{https://iscpif.fr/ccs-satelllite-session-2019-new-methods/}
+%
+%\smallskip
+%
+%\textbf{Submission link:}
+%
+%\url{https://easychair.org/conferences/?conf=simexplo2019}
+%
+%}
+%
 
 
 
