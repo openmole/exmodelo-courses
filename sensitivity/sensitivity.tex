@@ -12,7 +12,7 @@
 \subtitle{Course and practical application}
 %\author[Short Author]{Author}
 \author{eX Modelo Summer School}
-\date{August 31st, 2020}
+\date{June 31st 2021}
 \institute{\includegraphics[scale=2]{../beamer_template/figures/logos/openmole.png}}
 
 \begin{document}
@@ -127,7 +127,7 @@
 
 \medskip
 
-\includegraphics[width=\textwidth]{figures/directSamplingcode.png}
+\includegraphics[width=\textwidth]{figures/directSampling_code.png}
 
 %\texttt{
 %val explo = DirectSampling(\\
@@ -224,8 +224,8 @@ sampling = \\
 
 
 \begin{itemize}
-	\item Given the described zombie model, what first experiment beyond stochasticity would be relevant ?
-    \item Explore and test the \texttt{directsampling.oms} script available in the downloaded archive (see chat for link)
+	\item Given the described zombie model, what first experiment beyond stochasticity would be relevant?
+    \item Explore and test the \texttt{1{\_}directsampling.oms} script available in the downloaded archive (see chat for link)
     %\url{} % tp download url - in chat ?
     %\item Explore results (using e.g. the OpenMOLE GUI plots)
 \end{itemize}
@@ -277,14 +277,14 @@ Different methods for improving sampling in numerical experiments given limited 
 
 \sframe{Low discrepancy samplings}{
 
-\textit{Minimizing discrepancy for a point cloud: intuitively being spread evenly across the definition space}
+\textit{Minimising discrepancy for a point cloud: intuitively being spread evenly across the definition space}
 
 \bigskip
 
 %(def of discrepancy)
 % The discrepancy is defined as the $L2$-norm of local discrepancy which is for normalized data points $\mathbf{X}=(x_{ij})\in \left[0,1\right]^d$, a function of $\mathbf{t}\in \left[0,1\right]^d$ comparing the number of points falling in the corresponding hypercube with its volume, by $disc(\mathbf{t}) = \frac{1}{n}\sum_i \mathbbm{1}_{\prod_j x_{ij}<t_j} - \prod_j t_j$. It is a measure of how the point cloud covers the space.
 
-L2-discrepancy given for normalized data points $\mathbf{X}=(x_{ij})\in \left[0,1\right]^d$ by
+L2-discrepancy given for normalised data points $\mathbf{X}=(x_{ij})\in \left[0,1\right]^d$ by
 
 
 \[
@@ -327,7 +327,7 @@ L2-discrepancy given for normalized data points $\mathbf{X}=(x_{ij})\in \left[0,
 
 \bigskip
 
-\textit{Latin cube: one point in each row and column; hypercube generalization in any dimension}
+\textit{Latin cube: one point in each row and column; hypercube generalisation in any dimension}
 
 }
 
@@ -379,10 +379,11 @@ For $N=2500$ samples in 2 dimensions
   
 \texttt{
 sampling = LHS(\\
-\hspace{1cm}100,\\
-\hspace{1cm}x1 in (0.0,1.0),\\
-\hspace{1cm}x2 in (0.0,1.0)\\
-)
+\hspace{1cm}sample = 100,\\
+\hspace{1cm}factor = Seq(\\
+\hspace{2cm}x1 in (0.0,1.0),\\
+\hspace{2cm}x2 in (0.0,1.0)\\
+\hspace{1cm}))\\
 }
 
 \bigskip
@@ -391,15 +392,16 @@ sampling = LHS(\\
 
 \texttt{
 sampling = SobolSampling(\\
-\hspace{1cm} 100,\\
-\hspace{1cm}x1 in (0.0,1.0),\\
-\hspace{1cm}x2 in (0.0,1.0)\\
-)
+\hspace{1cm}sample = 100,\\
+\hspace{1cm}factor = Seq(\\
+\hspace{2cm}x1 in (0.0,1.0),\\
+\hspace{2cm}x2 in (0.0,1.0)\\
+\hspace{1cm}))\\
 }
 
 \bigskip
 
-$\rightarrow$ \textbf{Practice: } test these samplings in \texttt{directsampling.oms}
+$\rightarrow$ \textbf{Practice: } test these samplings in \texttt{1{\_}directsampling.oms}
 
 
 
@@ -521,7 +523,7 @@ $\rightarrow$ \textbf{Practice: } test these samplings in \texttt{directsampling
 
 \sframe{Sensitivity analysis}{
 
-\textbf{Aim of sensitivity analysis methods} \textit{How to summarize model sensitivity and isolate principal factors ?}
+\textbf{Aim of sensitivity analysis methods} \textit{How to summarise model sensitivity and isolate principal factors?}
 
 \bigskip
 
@@ -598,7 +600,8 @@ and complementary indices by
 
 \bigskip
 
-$\rightarrow$ \textbf{Practice: } explore the script \texttt{morris.oms}, comment the results obtained with a large-scale experiment \texttt{morrisresults}
+$\rightarrow$ \textbf{Practice: } explore and run the script \texttt{2{\_}morris.oms}
+%, comment the results obtained with a large-scale experiment \texttt{morrisresults}
 
 }
 
@@ -644,7 +647,7 @@ is the expected relative variance if all factors but $X_i$ are fixed (includes i
 \bigskip
 
 
-\includegraphics[width=\textwidth]{figures/saltellicode.png}
+\includegraphics[width=\textwidth]{figures/saltelli_code.png}
 
 
 }
