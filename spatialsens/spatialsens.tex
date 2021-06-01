@@ -645,24 +645,21 @@ $\rightarrow$ other generators have their own primitives\\(\texttt{BlocksGridSpa
 
 \medskip
 
-$\rightarrow$ explore the script \texttt{SpatialSampling.oms}
+$\rightarrow$ explore the script \texttt{1{\_}spatial{\_}sampling.oms}
 
-\medskip
-
-%\url{http://nextcloud.openmole.org/s/HsyqS3bSiS7Tb6B/download}
 
 }
 
 \sframe{Practice: exploration of generators}{
 
-Script \texttt{SpatialSampling.oms}
+Script \texttt{1{\_}spatial{\_}sampling.oms}
 
 \medskip
 
 \begin{enumerate}
-	\item Use the \texttt{MatrixHook} and an \texttt{EmptyTask}	to visualize different types of grid
+	\item Use the \texttt{MatrixHook} and an \texttt{EmptyTask}	to visualise different types of grid
 	\item Explore the generators applied to the ZOMBIE model at \url{https://om.exmodelo.org/spatialsens/}
-	\item Plug a hook to retrieve all flat configurations (using the commented ScalaTask)
+	%\item Check the flatten spatial configurations (using the \texttt{flattenGrid} ScalaTask)
 	\item Next step: Modify the script to plug random worlds into the model (later)
 \end{enumerate}
 
@@ -1094,13 +1091,13 @@ Raimbault, J. (2020). A model of urban evolution based on innovation diffusion. 
 
 % suggest: ecology (habitat / spatial niches ?) ; topography ; ?
 
-\textit{Spatial synthetic data in other disciplines ?}
+\textit{Spatial synthetic data in other disciplines?}
 
 \medskip
 
 \begin{itemize}
 	\item spatial network generative models
-	\item other disciplines ? ecology ? geosciences \cite{mogheir2004characterizing} ?
+	\item other disciplines? ecology \cite{carraro2020generation}? geosciences \cite{mogheir2004characterizing}?
 	\item interaction with data driven disciplines ? (planning, architecture, spatio-temporal datamining)
 	\item genericity of some models ? (reaction-diffusion)
 	\item synthetic data generation methods (synthetic populations)
@@ -1576,7 +1573,7 @@ Bergeaud, A., \& Raimbault, J. (2020). An empirical analysis of the spatial vari
 
 % show two different ways of implementing : either within the zombie model ; or with samplings (below is spatialdata library)
 
-$\rightarrow$ explore the script \texttt{spatialsens.oms}
+$\rightarrow$ explore the script \texttt{2{\_}spatialsens.oms}
 
 }
 
@@ -1602,7 +1599,7 @@ $\rightarrow$ explore the script \texttt{spatialsens.oms}
 %
 % show two different ways of implementing : either within the zombie model ; or with samplings (below is spatialdata library)
 
-$\rightarrow$ explore the script \texttt{phasediag.oms}
+$\rightarrow$ explore the script \texttt{3{\_}phasediag.oms}
 
 \bigskip
 
@@ -1621,7 +1618,7 @@ $\rightarrow$ explore the script \texttt{phasediag.oms}
 \bigskip
 
 
-$\rightarrow$ explore the script \texttt{calibrate.oms}
+$\rightarrow$ explore the script \texttt{4{\_}calibrate.oms}
 
 
 }
@@ -1641,6 +1638,30 @@ $\rightarrow$ urban planning policies yield different zombie-resilient compromis
 \includegraphics[width=0.48\textwidth]{figures/paretos_allsamples.png}
 \includegraphics[width=0.48\textwidth]{figures/paretos_20samples.png}
 
+
+
+}
+
+
+\sframe{Going further: real world configurations for the zombie model}{
+
+\textit{OpenStreetMap building sampler implemented in the spatialdata library}
+
+\bigskip
+
+$\rightarrow$ add the plugin \texttt{spatialdata{\_}2.13-0.4{\_}SNAPSHOT.jar} to your OpenMOLE instance
+
+\medskip
+
+$\rightarrow$ explore the script \texttt{5{\_}openstreetmap.oms}
+
+\medskip
+
+$\rightarrow$ integrate this sampling into the zombie model
+
+\medskip
+
+$\rightarrow$ simulate a zombie invasion for each district of a city of your choice
 
 
 }
