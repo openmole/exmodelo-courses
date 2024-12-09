@@ -54,7 +54,7 @@ slideOptions:
 </style>
 
 
-# Model exploration
+# Model embedding and first explorations
 
 Hands-on simple experiments in OpenMOLE:
  - run a model
@@ -129,7 +129,7 @@ Open the script file `2_repli.oms`
 
 ---
 
-### Aggregation
+## Aggregation
 
 Aggregated descriptor to describe the underlying statistical distribution: for example average or median
 
@@ -148,6 +148,8 @@ Replication(
 
 ---
 
+## Convergence of estimations
+
 ![](https://miniocodimd.openmole.org/codimd/uploads/upload_6c4acca922b1310398eebcd703fde7d4.png)
 
 
@@ -155,25 +157,24 @@ Replication(
 
 ## Output densities
 
-<img src="https://miniocodimd.openmole.org:443/codimd/uploads/upload_e842bc3e1876691851a3a56d6b128731.png">
+![](https://miniocodimd.openmole.org:443/codimd/uploads/upload_e842bc3e1876691851a3a56d6b128731.png)
 
+---
 
+## Design of Experiments
 
 ___
 
-## Design of Experiments
 
 *Interactive model exploration by hand and the need for preliminary experiments*
 
  $\rightarrow$ The Design of Experiments (DOE) as the definition of computational experiments to extract information from the simulation model
  
-Examples:
- - NetLogo behavior space: basic grid DOE
- - Sensitivity analysis as an advanced DOE
+**Examples:** DOE for statistics; NetLogo behavior space: basic grid DOE; Sensitivity analysis as an advanced DOE; $\ldots$
 
-Remarks:
+**Remarks:**
  - terminology strongly depends on disciplines and practices
- - most are generally preliminary experiments before more specific experiments
+ - most are preliminary explorations before more specific experiments
 
 
 ---
@@ -229,15 +230,13 @@ Cheapest and intuitive DOE: all factors have **nominal values** and a **discrete
 
 ---
 
-## Example where One-At-a-Time is limited
+## Example of One-At-a-Time limitation
 
 <!-- 20231110_exploration/totalRescuedAverage_humanInformedRatio_colorhumanInformProbability_facethumanFollowProbability.png -->
 
-For the zombie model, average `totalRescued` indicator, obtained with a grid sampling:
+<img src="https://miniocodimd.openmole.org/codimd/uploads/e7ff3bb3-5399-4c3a-a3e7-c436e53da1a8.png" height=350 width=500>
 
-![](https://miniocodimd.openmole.org/codimd/uploads/e7ff3bb3-5399-4c3a-a3e7-c436e53da1a8.png)
-
-
+For the zombie model, average `totalRescued` indicator, obtained with a grid sampling.
 
 
 ---
@@ -304,12 +303,17 @@ $\left\lVert \mathbf{t} = (t_j) \in \left[0,1\right]^d \mapsto \frac{1}{n}\sum_i
 
 ## Latin Hypercube Sampling
 
+<!--
 |x|||||
 |:--:|:--:|:--:|:--:|:--:|
-||x||||
-|||||x|
-||||x||
-|||x|||
+||**x**||||
+|||||**x**|
+||||**x**||
+|||**x**|||
+-->
+
+<img src="https://miniocodimd.openmole.org/codimd/uploads/53730ed8-eea5-40ba-a92b-29a3d51579b0.png" height=300 width=300>
+
 
 **Latin cube**: one point in each row and column 
 $\rightarrow$ hypercube generalisation in any dimension
@@ -334,14 +338,13 @@ $\rightarrow$ Constructed recursively (using bit representations)
 
 
 
-
 ---
 
 ## Comparison of samplings
 
-TODO upload graph discrepencies
+<img src="https://miniocodimd.openmole.org/codimd/uploads/e951a1e9-665c-4dab-b71d-5cd5a550f99e.png" height=350 width=500>
 
-![](https://miniocodimd.openmole.org/codimd/uploads/cb3a5428-61d1-4b16-8227-b3cf1de15f24.png)
+Estimated discrepancies for repetitions of samplings as a function of sample size
 
 
 ---
@@ -376,16 +379,23 @@ x2 in (0.0,1.0)
 
 ![](https://miniocodimd.openmole.org/codimd/uploads/31788be9-a999-4789-ba33-ed90376110d2.png)
 
+---
+
+## Going further: Global Sensitivity Analysis
+
+Methods to get an estimate of the overall average effect of inputs on outputs (Saltelli, 2008)
+
+ - Morris method averaging derivatives across random trajectories in the parameter space (`SensitivityMorris` in OpenMOLE)
+ - Saltelli method computing conditional variances (first order, total effect including interactions between parameters) extending Sobol indices (Saltelli et al., 2010) (`SensitivitySaltelli` in OpenMOLE)
 
 
 ---
 
 ## Take home messages 
 
-**TODO two or 3 slides to present GSA**
 
 
-- Direct samplings are a first way to get (limited) insights into model behaviour
-- More quantitative information about the importance of parameters $\rightarrow$ Global Sensitivity Analysis methods (Saltelli, Morris; included in OpenMOLE but not seen here)
+- Direct samplings provide a first insight into model behaviour
+- More quantitative information about the relative importance of parameters $\rightarrow$ Global Sensitivity Analysis methods (Saltelli, Morris; included in OpenMOLE but not seen here)
 - Need to balance computational budget, coverage and interpretability
-- The experiments always depend on your question, and more importantly on your discipliniary practices
+- The experiments always depend on your question, and more importantly on your disciplinary practices
